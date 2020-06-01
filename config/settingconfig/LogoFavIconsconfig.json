@@ -1,0 +1,18 @@
+{
+  "MAIN_LOGO" : {
+      "slug": "MAIN_LOGO",
+      "title": "Logo 1",
+      "field_type": "text",
+      "favlogo_value": "1_favlogo_value",
+      "manager": "theme_images",
+      "config_value_file": "LogoFav/django-icon-0.jpg.png"
+    },
+  "MAIN_FAVICON": {
+      "slug": "MAIN_FAVICON",
+      "title": "Logo 2",
+      "field_type": "text",
+      "favlogo_value": "2_favlogo_value",
+      "manager": "theme_images",
+      "config_value_file": "LogoFav/django-icon.ico"
+  }
+}

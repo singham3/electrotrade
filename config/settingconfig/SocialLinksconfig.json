@@ -1,0 +1,8 @@
+{
+  "title": "SOCIAL_FACEBOOK",
+  "url": "https://www.facebook.com",
+  "social_value": "0_socialvalue",
+  "iconclass": "fa fa-facebook",
+  "field_type": "text",
+  "manager": "social"
+}

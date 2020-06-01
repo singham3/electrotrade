@@ -1,0 +1,36 @@
+{
+  "smtp_details": {
+    "SMTPPASSWORD": "M`Kt)RBTjHMRYZFQdmYSQEp*acv?3^W^qhtcyl&NL2zzLcuHktYB4ccZER>{RyTJ~XLC+%VNWo1D|vEBQ&To`HgiyGICgS#Lt%3_FLZe}Qe$^zG&f0kQ%F=eWp`RKY&TSDXhC^5RyJ!?Q*t>%V_G<NPD5vFX;WuHT0&N7OiNF2IYf17R5*EJXGvK~L^Lo~K}0KOZgWOBb!c)nWK3{$W>-Z<O-w;FZ#P4AQ!8j{Nk?`;Ms`U-G;%g`VQOk(OEXAFD`G)mbZk#`T17c%Z+Av`RY^rxNi$1Fc~NpJQBz`7cW-28Lt->lM?z&-D{OLPb9Qi6HaT-dLRB&|RaI7RR&GOWK}<9;FjjVMRYWr@Ojs~8GBHOnYiD*aL@z@$X=877byYcYHcMD^Q&ebdWH3c*SVB>GbvJrqPi=HfN_IIbS95AfL@-7|K}$q<G<Y*YPI*{)LwR{)Z+UJsH%DnpXGu^&M{;U4a9LJ!F*sE#XI4UYYEw&WWll$7barf1H%?AtHfwWraxZW*IZ{+OSZ6n4K{ZxSRWn6zdPQw;XLoXJGEHJpWJz#hPB=MtRbgUtXlZqMIcrL1MPhY!X*h9DM0#&^H&0erMq^BQM>17KHgIuaWi&`Lbw*D~c}zHJFm@|!Q*(7pL^4WmRZnL%T2y#*O>|2(HDPaTZ+cTUO=DP1LQ!~3Z+T8xV@zvsZaFnHFJewjN@p^6H85sxPir@KS9NnXFLpUtaW!)<RyR#&R##(LX=qSaXfa4OVKHuWP&RjLbW25VRyT7=X>n6BXm?0+dP!<@Fk);qQ#N^RL{&{xG&pW_Z8k(sLRUdrH(Et-aZ_YwR&8c6IWIR-LR2|6S4K5OWqC$WZEHwEXj4T!",
+    "SMTP_EMAIL": "",
+    "SMTPUSERNAME": "",
+    "SMTPPORT": 0
+  },
+  "state_name": "Rajsthan",
+  "City": "Jaipur",
+  "Role": "Admin",
+  "Gender": {
+    "1": "Male",
+    "2": "Female",
+    "3": "Other"
+  },
+  "document_type": "Adhar Card",
+  "Register": {
+    "password": "asdf",
+    "username": "admin",
+    "first_name": "admin",
+    "last_name": "admin",
+    "email": "admin@admin.com",
+    "mobile": "1234567890",
+    "date_of_birth": "08/17/1995",
+    "user_profile_img": "media/avatar5.png",
+    "account_id": "98765432",
+    "address": "",
+    "pincode": "",
+    "gst_number": "",
+    "varification_document_front": "",
+    "varification_document_back": "",
+    "status": "true"
+  },
+  "host": "localhost",
+  "port": 8808
+}

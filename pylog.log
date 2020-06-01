@@ -1,0 +1,256 @@
+nohup: ignoring input
+Watching for file changes with StatReloader
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+[26/Feb/2020 12:26:27] "GET /admin/ HTTP/1.1" 200 18744
+[26/Feb/2020 12:26:35] "GET /admin/products/brand/ HTTP/1.1" 200 6710
+[26/Feb/2020 12:26:35] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:26:48] "POST /admin/products/brand/ HTTP/1.1" 200 3747
+[26/Feb/2020 12:26:50] "POST /admin/products/brand/ HTTP/1.1" 302 0
+[26/Feb/2020 12:26:50] "GET /admin/products/brand/ HTTP/1.1" 200 6413
+[26/Feb/2020 12:26:50] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:26:55] "GET /admin/products/brand/3/change/ HTTP/1.1" 200 5277
+[26/Feb/2020 12:26:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:27:05] "POST /admin/products/brand/3/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:27:05] "GET /admin/products/brand/ HTTP/1.1" 200 6504
+[26/Feb/2020 12:27:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:27:49] "GET /admin/products/brand/2/change/ HTTP/1.1" 200 5297
+[26/Feb/2020 12:27:49] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:27:51] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:27:59] "POST /admin/products/brand/2/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:27:59] "GET /admin/products/brand/ HTTP/1.1" 200 6539
+[26/Feb/2020 12:27:59] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:06] "GET /admin/products/brand/1/change/ HTTP/1.1" 200 5355
+[26/Feb/2020 12:28:06] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:15] "POST /admin/products/brand/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:28:16] "GET /admin/products/brand/ HTTP/1.1" 200 6569
+[26/Feb/2020 12:28:16] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:24] "GET /admin/products/ HTTP/1.1" 200 9517
+[26/Feb/2020 12:28:28] "GET /admin/products/category/ HTTP/1.1" 200 7321
+[26/Feb/2020 12:28:28] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:33] "GET /admin/products/category/1/change/ HTTP/1.1" 200 6958
+[26/Feb/2020 12:28:33] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:41] "POST /admin/products/category/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:28:41] "GET /admin/products/category/ HTTP/1.1" 200 7547
+[26/Feb/2020 12:28:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:45] "GET /admin/products/category/2/change/ HTTP/1.1" 200 6980
+[26/Feb/2020 12:28:45] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:28:56] "POST /admin/products/category/2/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:28:57] "GET /admin/products/category/ HTTP/1.1" 200 7588
+[26/Feb/2020 12:28:57] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:28:58] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:29:02] "GET /admin/products/category/3/change/ HTTP/1.1" 200 6940
+[26/Feb/2020 12:29:02] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:29:08] "POST /admin/products/category/3/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:29:08] "GET /admin/products/category/ HTTP/1.1" 200 7626
+[26/Feb/2020 12:29:08] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:29:09] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:29:12] "GET /admin/products/category/4/change/ HTTP/1.1" 200 7009
+[26/Feb/2020 12:29:12] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:29:23] "POST /admin/products/category/4/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:29:23] "GET /admin/products/category/ HTTP/1.1" 200 7664
+[26/Feb/2020 12:29:24] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:29:24] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:29:27] "GET /admin/products/category/5/change/ HTTP/1.1" 200 6941
+[26/Feb/2020 12:29:27] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:29:42] "POST /admin/products/category/5/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:29:42] "GET /admin/products/category/ HTTP/1.1" 200 7699
+[26/Feb/2020 12:29:42] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:29:44] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:29:46] "GET /admin/products/ HTTP/1.1" 200 9517
+[26/Feb/2020 12:29:50] "GET /admin/products/products/ HTTP/1.1" 200 12414
+[26/Feb/2020 12:29:50] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:29:51] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:29:53] "GET /admin/products/products/4/change/ HTTP/1.1" 200 20076
+[26/Feb/2020 12:29:53] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:29:53] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:29:54] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:30:58] "POST /admin/products/products/4/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:30:58] "GET /admin/products/products/ HTTP/1.1" 200 12880
+[26/Feb/2020 12:30:58] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:30:59] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:31:07] "GET /admin/products/products/2/change/ HTTP/1.1" 200 19942
+[26/Feb/2020 12:31:07] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:31:07] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:31:08] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:31:35] "POST /admin/products/products/2/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:31:35] "GET /admin/products/products/ HTTP/1.1" 200 12970
+[26/Feb/2020 12:31:35] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:31:36] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:31:43] "GET /admin/products/products/1/change/ HTTP/1.1" 200 20003
+[26/Feb/2020 12:31:43] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:31:43] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:31:44] "GET /static/tiny_mce/tiny_mce.js HTTP/1.1" 404 1801
+[26/Feb/2020 12:32:55] "POST /admin/products/products/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:32:55] "GET /admin/products/products/ HTTP/1.1" 200 13060
+[26/Feb/2020 12:32:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:32:56] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:33:10] "GET /admin/ HTTP/1.1" 200 18844
+[26/Feb/2020 12:33:13] "GET /admin/registration/register/ HTTP/1.1" 200 7420
+[26/Feb/2020 12:33:13] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:33:14] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:33:15] "GET /admin/registration/register/2/change/ HTTP/1.1" 200 15149
+[26/Feb/2020 12:33:15] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:33:16] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:33:28] "GET /admin/registration/ HTTP/1.1" 200 5373
+[26/Feb/2020 12:33:31] "GET /admin/registration/register/ HTTP/1.1" 200 7420
+[26/Feb/2020 12:33:31] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:33:32] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:33:34] "GET /admin/registration/register/1/change/ HTTP/1.1" 200 15424
+[26/Feb/2020 12:33:34] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:34:00] "POST /admin/registration/register/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:34:01] "GET /admin/registration/register/ HTTP/1.1" 200 7639
+[26/Feb/2020 12:34:01] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:34:13] "GET /admin/ HTTP/1.1" 200 18866
+[26/Feb/2020 12:34:16] "GET /admin/registration/city/ HTTP/1.1" 200 5642
+[26/Feb/2020 12:34:16] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:34:17] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:34:19] "GET /admin/registration/city/3/change/ HTTP/1.1" 200 6605
+[26/Feb/2020 12:34:19] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:34:32] "POST /admin/registration/city/3/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:34:32] "GET /admin/registration/city/ HTTP/1.1" 200 5843
+[26/Feb/2020 12:34:32] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 12:34:33] "GET /favicon.ico HTTP/1.1" 404 4023
+[26/Feb/2020 12:35:12] "POST /api/v1/user/login/ HTTP/1.1" 200 813
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 26, 2020 - 12:26:24
+Django version 3.0.3, using settings 'electonicswebservice.settings'
+Starting development server at http://0.0.0.0:8800/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+[26/Feb/2020 12:37:45] "POST /api/v1/user/login/ HTTP/1.1" 200 857
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Brand'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:38:02] "GET /api/v1/products/brands/ HTTP/1.1" 200 313
+/home/ubuntu/electronics/electonicswebservice_v5-master/products/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 26, 2020 - 12:37:42
+Django version 3.0.3, using settings 'electonicswebservice.settings'
+Starting development server at http://0.0.0.0:8800/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Brand'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:39:26] "GET /api/v1/products/brands/ HTTP/1.1" 200 445
+[26/Feb/2020 12:39:33] "GET /api/v1/products HTTP/1.1" 301 0
+/home/ubuntu/electronics/electonicswebservice_v5-master/products/views.py:106: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Products'> QuerySet.
+  paginator = Paginator(product_data, 10)
+[26/Feb/2020 12:39:33] "GET /api/v1/products/ HTTP/1.1" 200 4184
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Category'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:39:49] "GET /api/v1/products/category/ HTTP/1.1" 200 1045
+[26/Feb/2020 12:40:39] "POST /api/v1/user/login/ HTTP/1.1" 200 857
+[26/Feb/2020 12:40:57] "GET /api/v1/products/ HTTP/1.1" 200 4184
+[26/Feb/2020 12:41:15] "GET /api/v1/products/1/ HTTP/1.1" 200 4184
+[26/Feb/2020 12:45:52] "GET /admin/ HTTP/1.1" 200 18876
+[26/Feb/2020 12:52:59] "GET /api/v1/products/category/ HTTP/1.1" 200 78
+[26/Feb/2020 12:52:59] "GET /api/v1/products/brands/ HTTP/1.1" 200 78
+[26/Feb/2020 12:52:59] "GET /api/v1/products/banner/ HTTP/1.1" 200 78
+[26/Feb/2020 12:52:59] "GET /api/v1/products/ HTTP/1.1" 200 78
+[26/Feb/2020 12:53:00] "GET /api/v1/user/city/ HTTP/1.1" 200 78
+[26/Feb/2020 12:53:22] "POST /api/v1/user/login/ HTTP/1.1" 200 857
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Banner'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:53:22] "GET /api/v1/products/banner/ HTTP/1.1" 200 303
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Brand'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:53:22] "GET /api/v1/products/brands/ HTTP/1.1" 200 445
+[26/Feb/2020 12:53:22] "GET /api/v1/products/category/ HTTP/1.1" 200 1045
+[26/Feb/2020 12:53:22] "GET /api/v1/products/ HTTP/1.1" 200 4184
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'registration.models.City'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 12:53:27] "GET /api/v1/user/city/ HTTP/1.1" 200 185
+[26/Feb/2020 12:55:27] "GET /api/v1/products/banner/ HTTP/1.1" 200 303
+[26/Feb/2020 12:55:58] "GET /api/v1/user/city/ HTTP/1.1" 200 185
+[26/Feb/2020 12:58:14] "GET /api/v1/products/banner/ HTTP/1.1" 200 78
+[26/Feb/2020 12:58:47] "POST /api/v1/user/login/ HTTP/1.1" 200 778
+[26/Feb/2020 12:58:57] "GET /api/v1/products/banner/ HTTP/1.1" 200 303
+[26/Feb/2020 12:59:06] "GET /admin/products/banner/ HTTP/1.1" 200 6160
+[26/Feb/2020 12:59:06] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:59:11] "GET /admin/products/banner/1/change/ HTTP/1.1" 200 8348
+[26/Feb/2020 12:59:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:59:55] "POST /admin/products/banner/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 12:59:55] "GET /admin/products/banner/ HTTP/1.1" 200 6399
+[26/Feb/2020 12:59:55] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 12:59:59] "GET /admin/products/banner/1/change/ HTTP/1.1" 200 8388
+[26/Feb/2020 12:59:59] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+[26/Feb/2020 13:00:11] "POST /admin/products/banner/1/change/ HTTP/1.1" 302 0
+[26/Feb/2020 13:00:11] "GET /admin/products/banner/ HTTP/1.1" 200 6445
+[26/Feb/2020 13:00:11] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+/home/ubuntu/electronics/electonicswebservice_v5-master/products/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 26, 2020 - 12:39:25
+Django version 3.0.3, using settings 'electonicswebservice.settings'
+Starting development server at http://0.0.0.0:8800/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+/home/ubuntu/electronics/electonicswebservice_v5-master/registration/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 26, 2020 - 13:02:05
+Django version 3.0.3, using settings 'electonicswebservice.settings'
+Starting development server at http://0.0.0.0:8800/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Banner'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 13:03:28] "GET /api/v1/products/banner/ HTTP/1.1" 200 413
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Brand'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Category'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Banner'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+/home/ubuntu/electronics/electonicswebservice_v5-master/products/views.py:106: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'products.models.Products'> QuerySet.
+  paginator = Paginator(product_data, 10)
+[26/Feb/2020 13:03:48] "GET /api/v1/products/banner/ HTTP/1.1" 200 413
+[26/Feb/2020 13:03:48] "GET /api/v1/products/category/ HTTP/1.1" 200 1045
+[26/Feb/2020 13:03:48] "GET /api/v1/products/brands/ HTTP/1.1" 200 445
+[26/Feb/2020 13:03:48] "GET /api/v1/products/ HTTP/1.1" 200 4184
+/home/ubuntu/electronics/electonicswebservice_v5-master/electonicswebservice/admininfo.py:63: UnorderedObjectListWarning: Pagination may yield inconsistent results with an unordered object_list: <class 'registration.models.City'> QuerySet.
+  paginator = Paginator(all_model_data, 10)
+[26/Feb/2020 13:03:48] "GET /api/v1/user/city/ HTTP/1.1" 200 229
+[26/Feb/2020 13:03:52] "GET /api/v1/user/city/ HTTP/1.1" 200 229
+[26/Feb/2020 13:24:34] "GET /api/v1/user/city/ HTTP/1.1" 200 229
+[26/Feb/2020 13:59:05] "GET /admin/products/banner/ HTTP/1.1" 200 6246
+[26/Feb/2020 13:59:05] "GET /admin/jsi18n/ HTTP/1.1" 200 3223
+Not Found: /favicon.ico
+[26/Feb/2020 13:59:06] "GET /favicon.ico HTTP/1.1" 404 4023
+[27/Feb/2020 13:06:12] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[27/Feb/2020 13:06:12] "  /*à     Cookie: mstshash=Administr" 400 -
+[27/Feb/2020 13:09:52] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[27/Feb/2020 13:09:52] "  /*à     Cookie: mstshash=Administr" 400 -
+[27/Feb/2020 13:14:17] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[27/Feb/2020 13:14:17] "  /*à     Cookie: mstshash=Administr" 400 -
+[27/Feb/2020 13:17:58] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[27/Feb/2020 13:17:58] "  /*à     Cookie: mstshash=Administr" 400 -

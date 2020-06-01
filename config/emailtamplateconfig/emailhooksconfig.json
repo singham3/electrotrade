@@ -1,0 +1,5 @@
+{
+  "title": "Welcome Email",
+  "hook": "welcome-email",
+  "description": "when user has been registered then send welcome email for verify account."
+}

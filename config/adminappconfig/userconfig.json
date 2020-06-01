@@ -1,0 +1,10 @@
+{
+  "username": "admin",
+  "first_name": "admin",
+  "last_name": "admin",
+  "email": "admin@gmail.com",
+  "mobile": 9874561230,
+  "date_of_birth" : "08/17/1995",
+  "admin_img" : "media/avatar5.png",
+  "password": "asdf"
+}
