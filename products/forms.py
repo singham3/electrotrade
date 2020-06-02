@@ -4,6 +4,7 @@ from electonicswebservice.admininfo import *
 from django.forms import BaseModelForm, ModelForm
 import sys
 from django_mysql.forms import SimpleListField
+import pickle
 
 
 class ProductChoiceField(forms.ModelChoiceField):
@@ -169,3 +170,30 @@ class BannerProductsForm(ModelForm):
     class Meta:
         model = BannerProducts
         fields = ('banner_id', 'product')
+
+
+class OrderProductDeliverform(ModelForm):
+    product_price = forms.CharField(required=True, widget=forms.TextInput(attrs={'readonly': 'readonly'}))
+    payment_status = forms.ChoiceField(choices=payment_status_choices, required=True)
+    delivery_amount = forms.FloatField(required=False)
+    delivery_status = forms.ChoiceField(choices=delivery_status_choices, required=True)
+    is_delivered = forms.BooleanField(required=False)
+
+    class Meta:
+        model = OrderProductDeliver
+        fields = ('user', 'order', 'product', 'order_product', 'payment_method', 'payment_status', 'product_price',
+                  'delivery_amount', 'delivery_date_time', 'delivery_status', 'is_delivered')
+
+    def clean(self):
+        cleaned_data = super(OrderProductDeliverform, self).clean()
+        user = cleaned_data.get("user")
+        product = cleaned_data.get("product")
+        order = cleaned_data.get("order")
+        order_product = cleaned_data.get("order_product")
+        f = open('/var/www/html/electonicswebservice/debug/error.txt', 'a')
+        f.write(str((str(type(user)), str(type(product)), str(type(order)), str(type(order_product)))))
+        if OrderProduct.objects.filter(user=user, product=product, order=order, is_cancel=False).exists():
+            raise forms.ValidationError("Order Product Not Exists")
+        if not OrderProductDeliver.objects.filter(user=user, product=product, order=order, order_product=order_product).exists():
+            raise forms.ValidationError("Order Product Delivery Model Not Exists")
+        return cleaned_data

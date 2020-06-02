@@ -2,11 +2,7 @@ from django.contrib import admin
 from .models import *
 from electonicswebservice.admininfo import *
 from .forms import *
-# Register your models here.
-
-
-class OTPHistoryAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
+from django.contrib import messages
 
 
 class BannerAdminView(admin.ModelAdmin):
@@ -79,31 +75,71 @@ class ProductSpecAdminView(admin.ModelAdmin):
     form = ProductSpecForm
 
 
-class AddCartAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
-
-
 class OrderProductAdminView(admin.ModelAdmin):
     list_display = ('id', 'created_at')
 
 
-class OrderAddressAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
+class OrderProductDeliverAdminView(admin.ModelAdmin):
+    def product_detail(self, obj):
+        if obj.product is not None:
+            return obj.product.title
 
+    def order_detail(self, obj):
+        if obj.order is not None:
+            return obj.order.order_id
 
-class ProductRewardAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
+    def order_product_detail(self, obj):
+        if obj.order_product is not None:
+            return obj.order_product.id
+    list_display = ('id', 'order_detail', 'product_detail', 'order_product_detail', 'is_delivered',
+                    'delivery_date_time', 'delivery_status')
+    form = OrderProductDeliverform
 
-
-class RewardRedeemAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
+    def save_model(self, request, obj, form, change):
+        if request.method == 'POST':
+            try:
+                if form.is_valid():
+                    user = form.cleaned_data["user"]
+                    order = form.cleaned_data['order']
+                    product = form.cleaned_data['product']
+                    order_product = form.cleaned_data['order_product']
+                    payment_status = form.cleaned_data['payment_status']
+                    delivery_amount = form.cleaned_data.get('delivery_amount')
+                    delivery_date_time = form.cleaned_data.get('delivery_date_time')
+                    delivery_status = form.cleaned_data.get('delivery_status')
+                    is_delivered = form.cleaned_data.get('is_delivered')
+                    order_product_obj = OrderProduct.objects.get(id=order_product.id, user=user, product=product,
+                                                                 order=order, is_cancel=False)
+                    order_product_deliver = OrderProductDeliver.objects.get(user=user, product=product, order=order,
+                                                                            order_product=order_product)
+                    if delivery_amount:
+                        if order_product_obj.total_after_tax == delivery_amount and payment_status == 'Paid':
+                            order_product_deliver.payment_status = payment_status
+                            order_product_deliver.delivery_amount = delivery_amount
+                            order_product_deliver.is_delivered = is_delivered
+                            product_reward = ProductReward.objects.get(user=user)
+                            product_reward.reward_point += order_product_obj.Products.rewards
+                            product_reward.updated_at = datetime.now()
+                            product_reward.save()
+                        else:
+                            messages.error(request, f"Please Collect money equal to the amount of the product, which is {order_product_obj.total_after_tax} rs.")
+                    order_product_deliver.delivery_date_time = delivery_date_time
+                    order_product_deliver.delivery_status = delivery_status
+                    order_product_deliver.updated_at = datetime.now()
+                    order_product_deliver.save()
+                    order_product_obj.delivery_date_time = delivery_date_time
+                    order_product_obj.delivery_status = delivery_status
+                    order_product_obj.is_delivered = is_delivered
+                    order_product_obj.updated_at = datetime.now()
+                    order_product_obj.save()
+            except Exception as e:
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+                messages.error(request, f"{e}, {f_name}, {exc_tb.tb_lineno}")
 
 
 class ProductsPaymentMethodAdminView(admin.ModelAdmin):
-    list_display = ('id', 'created_at')
-
-
-class ProductPaymentsAdminView(admin.ModelAdmin):
     list_display = ('id', 'created_at')
 
 
@@ -115,7 +151,6 @@ class UserCategoryAdminView(admin.ModelAdmin):
     list_display = ('id', 'created_at')
 
 
-admin.site.register(OTPHistory, OTPHistoryAdminView)
 admin.site.register(Banner, BannerAdminView)
 admin.site.register(Category, CategoryAdminView)
 admin.site.register(Brand, BrandAdminView)
@@ -126,14 +161,10 @@ admin.site.register(ServiceReward, ServiceRewardAdminView)
 admin.site.register(Products, ProductsAdminView)
 admin.site.register(ProductReview, ProductReviewAdminView)
 admin.site.register(ProductSpec, ProductSpecAdminView)
-admin.site.register(AddCart, AddCartAdminView)
 admin.site.register(OrderProduct, OrderProductAdminView)
-admin.site.register(OrderAddress, OrderAddressAdminView)
-admin.site.register(ProductReward, ProductRewardAdminView)
-admin.site.register(RewardRedeem, RewardRedeemAdminView)
+admin.site.register(OrderProductDeliver, OrderProductDeliverAdminView)
 admin.site.register(BannerProducts, BannerProductsAdminView)
 admin.site.register(ProductsPaymentMethod, ProductsPaymentMethodAdminView)
-admin.site.register(ProductPayments, ProductPaymentsAdminView)
 admin.site.register(ProductIGST, ProductIGSTAdminView)
 admin.site.register(UserCategory, UserCategoryAdminView)
 

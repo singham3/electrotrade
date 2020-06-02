@@ -47,6 +47,7 @@ urlpatterns = [
     path('api/v1/products/add-cart/', add_cart_view),
     path('api/v1/products/add-cart/remove-card/', remove_cart_view),
     path('api/v1/products/order/order-product/', order_product_view),
+    path('api/v1/products/order/order-product/cancel/', order_product_cancel_view),
     path('api/v1/products/order/order-address/', product_order_address_view),
     path('api/v1/products/order/order-address/select/', product_order_select_address_view),
     path('api/v1/products/order/order-address/remove/', product_order_remove_address_view),

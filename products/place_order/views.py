@@ -13,6 +13,7 @@ from products.middleware import *
 from datetime import datetime, timedelta
 from dateutil.relativedelta import *
 from django.utils.timezone import localtime
+from django.utils import timezone
 
 
 @api_view(['GET', 'POST'])
@@ -202,6 +203,11 @@ def order_product_view(request, form):
             reward = form.cleaned_data['reward']
             payment_method = form.cleaned_data['payment_method']
             payment_status = None
+            method = None
+            if ProductsPaymentMethod.objects.filter(method=payment_method).exists():
+                if payment_method == "COD":
+                    payment_status = "Unpaid"
+                method = ProductsPaymentMethod.objects.get(method=payment_method)
             product_order_list = {}
             all_product_price = 0
             total_products_price = 0
@@ -217,6 +223,7 @@ def order_product_view(request, form):
                 quantity = order.total
                 gst_per = order.product.gst_per if order.product.gst_per else 0.0
                 total_after_tax = (price*quantity) + delivery_charges
+                delivery_date_time = datetime.now() + timedelta(days=order.product.delivery_days)
                 if order_address.state.state_name != 'Rajsthan':
                     if ProductIGST.objects.filter(product=order.product).exists():
                         total_after_tax = (price*quantity) + ProductIGST.objects.get(product=order.product).igst_value + delivery_charges
@@ -230,7 +237,7 @@ def order_product_view(request, form):
                     order_product.delivery_charges = order.product.delivery_charges
                     order_product.is_replacement = order.product.is_replacement
                     order_product.delivery_address = order_address
-                    order_product.delivery_date_time = datetime.now() + timedelta(days=order.product.delivery_days),
+                    order_product.delivery_date_time = delivery_date_time
                     if order.product.is_replacement:
                         order_product.replacement_from = datetime.now()
                         order_product.replacement_to = datetime.now() + relativedelta(months=+order.product.replacement_duration)
@@ -240,7 +247,7 @@ def order_product_view(request, form):
                     OrderProduct(user=user, order=order.order, product=order.product, price=price, quantity=quantity,
                                  gst_per=gst_per, total_after_tax=total_after_tax,
                                  delivery_days=order.product.delivery_days,
-                                 delivery_date_time=datetime.now() + timedelta(days=order.product.delivery_days),
+                                 delivery_date_time=delivery_date_time,
                                  delivery_charges=order.product.delivery_charges,
                                  is_replacement=order.product.is_replacement,
                                  replacement_from=datetime.now() if order.product.is_replacement else None,
@@ -248,6 +255,10 @@ def order_product_view(request, form):
                                  delivery_address=order_address
                                  ).save()
                     product_order = OrderProduct.objects.last()
+                OrderProductDeliver(user=user, order=order.order, product=order.product,
+                                    order_product=product_order, product_price=total_after_tax,
+                                    payment_status=payment_status, payment_method=method,
+                                    delivery_date_time=delivery_date_time).save()
                 AddCart.objects.get(id=order.id).delete()
                 order = product_order.order
                 all_product_price += total_after_tax
@@ -259,6 +270,8 @@ def order_product_view(request, form):
                         RewardRedeem(user=user, points=reward_point.reward_point, order=order).save()
                         reward_point.reward_point = 0.0
                         reward_point.save()
+                    else:
+                        total_products_price = all_product_price
                 mehtod = ProductsPaymentMethod.objects.get(method=payment_method)
                 ProductPayments(user=user, order=order, total_after_tax=all_product_price,
                                 reward=reward_point, payment_method=mehtod, payment_status=payment_status,
@@ -274,7 +287,7 @@ def order_product_view(request, form):
                 if ProductReward.objects.filter(user=user).exists():
                     product_order_list['ProductReward'] = product_reward_json(ProductReward.objects.get(user=user))
                 else:
-                    ProductReward(user=user, order=order, reward_point=0.0).save()
+                    ProductReward(user=user, reward_point=0.0).save()
                     product_order_list['ProductReward'] = product_reward_json(ProductReward.objects.get(user=user))
 
             return_json['valid'] = True
@@ -282,6 +295,83 @@ def order_product_view(request, form):
             return_json['count_result'] = 1
             return_json['data'] = product_order_list
             return JsonResponse(return_json, safe=False, status=200)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+@decorator_from_middleware(OrderProductCancelMiddleware)
+def order_product_cancel_view(request, form=None):
+    try:
+        user = Register.objects.get(account_id=request.COOKIES['id'])
+        if request.method == "POST":
+            order = OrderId.objects.get(order_id=form.cleaned_data['order_id'])
+            product = Products.objects.get(id=form.cleaned_data['product_id'])
+            cancellation_description = None
+            if 'cancellation_description' in form.cleaned_data:
+                cancellation_description = form.cleaned_data['cancellation_description']
+            product_payments = ProductPayments.objects.get(user=user, order=order, is_cancel=False)
+            order_product = OrderProduct.objects.get(user=user, product=product, order=order, is_cancel=False)
+            if order_product.delivery_date_time > timezone.now():
+                order_product.is_delivered = False
+                order_product.is_cancel = True
+                order_product.delivery_status = 'Product cancelled'
+                order_product.order_cancel_date_time = datetime.now()
+                order_product.delivery_charges = None
+                order_product.cancellation_description = cancellation_description
+                order_product.updated_at = datetime.now()
+                order_product.save()
+                product_payments.total_products_price = product_payments.total_products_price - order_product.total_after_tax
+                product_payments.created_at = datetime.now()
+                product_payments.save()
+                OrderProductDeliver.objects.get(user=user, product=product, order=order,
+                                                order_product=order_product).delete()
+            if not OrderProduct.objects.filter(user=user, order=order, is_cancel=False).exists():
+                product_payments = ProductPayments.objects.get(user=user, order=order, is_cancel=False)
+                product_payments.is_cancel = True
+                product_payments.payment_status = 'Order cancelled'
+                product_payments.save()
+                if RewardRedeem.objects.filter(user=user, order=order).exists():
+                    reward_redeem = RewardRedeem.objects.get(user=user, order=order)
+                    reward = ProductReward.objects.get(user=user)
+                    reward.reward_point += reward_redeem.points
+                    reward.updated_at = datetime.now()
+                    reward.save()
+                    reward_redeem.delete()
+        product_payments = ProductPayments.objects.filter(user=user)
+        product_order_dict = []
+        for i in product_payments:
+            product_order_list = []
+            product_order = OrderProduct.objects.filter(user=user, order=i.order)
+            for k in product_order:
+                j = model_to_dict(k)
+                if k.user:
+                    j['user'] = str(k.user.id)
+                if k.order:
+                    j['order'] = str(k.order.order_id)
+                if k.product:
+                    j['product'] = product_data_json(k.product)
+                for m in j:
+                    if j[m] is None:
+                        j[m] = ''
+                product_order_list.append(j)
+            product_reward = product_reward_json(ProductReward.objects.get(user=user))
+            product_payment = product_payments_json(i)
+            product_payment['product_order'] = product_order_list
+            product_payment['product_reward'] = product_reward
+            product_order_dict.append(product_payment)
+        return_json['valid'] = True
+        return_json['message'] = "Successfully get all Order Product data"
+        return_json['count_result'] = 1
+        return_json['data'] = product_order_dict
+        return JsonResponse(return_json, safe=False, status=200)
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]

@@ -92,8 +92,6 @@ def product_reward_json(obj):
     k = model_to_dict(obj)
     if obj.user:
         k['user'] = str(obj.user.id)
-    if obj.order:
-        k['order'] = str(obj.order.order_id)
     for m in k:
         if k[m] is None:
             k[m] = ""

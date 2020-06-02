@@ -14,13 +14,12 @@ product_spec_choices = [('Technical Specification', 'Technical Specification'),
                         ('General Specification', 'General Specification'),
                         ('Design Specification', 'Design Specification')]
 
+delivery_status_choices = [('Your Order Has Placed', 'Your Order Has Placed'),
+                           ('Order Shipped', 'Order Shipped'),
+                           ('Out for delivery', 'Out for delivery'),
+                           ('Delivered', 'Delivered')]
 
-class OTPHistory(models.Model):
-    otp = models.IntegerField(default=None)
-    mobile_num = models.IntegerField(default=None)
-    timestamp = models.DateTimeField(default=datetime.now)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+payment_status_choices = [('Unpaid', 'Unpaid'), ('Paid', 'Paid')]
 
 
 class Banner(models.Model):
@@ -243,6 +242,7 @@ class OrderAddress(models.Model):
     is_profile = models.BooleanField(default=False)
     status = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -266,6 +266,10 @@ class OrderProduct(models.Model):
     is_replacement = models.BooleanField(default=False)
     replacement_from = models.DateTimeField(null=True, blank=True)
     replacement_to = models.DateTimeField(null=True, blank=True)
+    is_delivered = models.BooleanField(default=False)
+    is_cancel = models.BooleanField(default=False)
+    order_cancel_date_time = models.DateTimeField(null=True, blank=True)
+    cancellation_description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -275,8 +279,7 @@ class OrderProduct(models.Model):
 
 class ProductReward(models.Model):
     user = models.ForeignKey(Register, on_delete=models.PROTECT, null=True)
-    order = models.ForeignKey(OrderId, on_delete=models.PROTECT, null=True)
-    reward_point = models.FloatField(default=None)
+    reward_point = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -286,7 +289,7 @@ class ProductReward(models.Model):
 
 class RewardRedeem(models.Model):
     user = models.ForeignKey(Register, on_delete=models.PROTECT, null=True)
-    points = models.IntegerField(default=None)
+    points = models.FloatField(default=0.0)
     order = models.ForeignKey(OrderId, on_delete=models.PROTECT, null=True)
     timestamp = models.DateTimeField(default=datetime.now)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -328,5 +331,22 @@ class ProductPayments(models.Model):
     total_products_price = models.FloatField(default=0.0)
     payment_method = models.ForeignKey(ProductsPaymentMethod, on_delete=models.PROTECT)
     payment_status = models.CharField(max_length=250)
+    is_cancel = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+
+class OrderProductDeliver(models.Model):
+    user = models.ForeignKey(Register, on_delete=models.PROTECT, null=True)
+    order = models.ForeignKey(OrderId, on_delete=models.PROTECT, null=True)
+    product = models.ForeignKey(Products, on_delete=models.PROTECT, null=True)
+    order_product = models.ForeignKey(OrderProduct, on_delete=models.PROTECT, null=True)
+    product_price = models.FloatField(default=0.0, null=True, blank=True)
+    payment_status = models.CharField(max_length=250, null=True, blank=True)
+    payment_method = models.ForeignKey(ProductsPaymentMethod, on_delete=models.PROTECT, null=True, blank=True)
+    delivery_amount = models.FloatField(default=0.0)
+    delivery_date_time = models.DateTimeField(null=True, blank=True)
+    delivery_status = models.CharField(max_length=200, choices=delivery_status_choices, default="Your Order Has Placed")
+    is_delivered = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
