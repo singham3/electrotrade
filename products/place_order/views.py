@@ -319,20 +319,21 @@ def order_product_cancel_view(request, form=None):
                 cancellation_description = form.cleaned_data['cancellation_description']
             product_payments = ProductPayments.objects.get(user=user, order=order, is_cancel=False)
             order_product = OrderProduct.objects.get(user=user, product=product, order=order, is_cancel=False)
-            if order_product.delivery_date_time > timezone.now():
-                order_product.is_delivered = False
-                order_product.is_cancel = True
-                order_product.delivery_status = 'Product cancelled'
-                order_product.order_cancel_date_time = datetime.now()
-                order_product.delivery_charges = None
-                order_product.cancellation_description = cancellation_description
-                order_product.updated_at = datetime.now()
-                order_product.save()
-                product_payments.total_products_price = product_payments.total_products_price - order_product.total_after_tax
-                product_payments.created_at = datetime.now()
-                product_payments.save()
-                OrderProductDeliver.objects.get(user=user, product=product, order=order,
-                                                order_product=order_product).delete()
+            if OrderProductDeliver.objects.filter(user=user, product=product, order=order, order_product=order_product, payment_status='Unpaid', is_delivered=False).exists():
+                if order_product.delivery_date_time > timezone.now():
+                    order_product.is_delivered = False
+                    order_product.is_cancel = True
+                    order_product.delivery_status = 'Product cancelled'
+                    order_product.order_cancel_date_time = datetime.now()
+                    order_product.delivery_charges = None
+                    order_product.cancellation_description = cancellation_description
+                    order_product.updated_at = datetime.now()
+                    order_product.save()
+                    product_payments.total_products_price = product_payments.total_products_price - order_product.total_after_tax
+                    product_payments.created_at = datetime.now()
+                    product_payments.save()
+                    OrderProductDeliver.objects.get(user=user, product=product, order=order,
+                                                    order_product=order_product).delete()
             if not OrderProduct.objects.filter(user=user, order=order, is_cancel=False).exists():
                 product_payments = ProductPayments.objects.get(user=user, order=order, is_cancel=False)
                 product_payments.is_cancel = True
