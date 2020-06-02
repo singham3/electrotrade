@@ -190,9 +190,7 @@ class OrderProductDeliverform(ModelForm):
         product = cleaned_data.get("product")
         order = cleaned_data.get("order")
         order_product = cleaned_data.get("order_product")
-        f = open('/var/www/html/electonicswebservice/debug/error.txt', 'a')
-        f.write(str((str(type(user)), str(type(product)), str(type(order)), str(type(order_product)))))
-        if OrderProduct.objects.filter(user=user, product=product, order=order, is_cancel=False).exists():
+        if not OrderProduct.objects.filter(user=user, product=product, order=order, is_cancel=False).exists():
             raise forms.ValidationError("Order Product Not Exists")
         if not OrderProductDeliver.objects.filter(user=user, product=product, order=order, order_product=order_product).exists():
             raise forms.ValidationError("Order Product Delivery Model Not Exists")

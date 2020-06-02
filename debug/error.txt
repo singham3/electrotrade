@@ -1,0 +1,1 @@
+("<class 'registration.models.Register'>", "<class 'products.models.Products'>", "<class 'products.models.OrderId'>", "<class 'products.models.OrderProduct'>")
