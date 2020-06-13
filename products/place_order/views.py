@@ -193,6 +193,31 @@ def sms_otp_verify_view(request):
 
 
 @api_view(['GET', 'POST'])
+def user_reward_view(request):
+    try:
+        user = Register.objects.get(account_id=request.COOKIES['id'])
+        if ProductReward.objects.filter(user=user).exists():
+            reward = product_reward_json(ProductReward.objects.get(user=user))
+        else:
+            ProductReward(user=user, reward_point=0.0).save()
+            reward = product_reward_json(ProductReward.objects.get(user=user))
+        return_json['valid'] = True
+        return_json['message'] = "Successfully get User Reward Data"
+        return_json['count_result'] = 1
+        return_json['data'] = reward
+        return JsonResponse(return_json, safe=False, status=200)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
 @decorator_from_middleware(ProductOrderMiddleware)
 def order_product_view(request, form):
     try:
@@ -266,10 +291,15 @@ def order_product_view(request, form):
                 if payment_method == "COD":
                     payment_status = "Unpaid"
                     if reward_point:
-                        total_products_price = all_product_price - reward_point.reward_point
+                        if reward_point.reward_point >= 1000.0:
+                            total_products_price = all_product_price - 1000.0
+                            reward_point.reward_point = reward_point.reward_point - 1000.0
+                            reward_point.save()
+                        else:
+                            total_products_price = all_product_price - reward_point.reward_point
+                            reward_point.reward_point = 0.0
+                            reward_point.save()
                         RewardRedeem(user=user, points=reward_point.reward_point, order=order).save()
-                        reward_point.reward_point = 0.0
-                        reward_point.save()
                     else:
                         total_products_price = all_product_price
                 mehtod = ProductsPaymentMethod.objects.get(method=payment_method)
@@ -277,13 +307,6 @@ def order_product_view(request, form):
                                 reward=reward_point, payment_method=mehtod, payment_status=payment_status,
                                 total_products_price=total_products_price).save()
                 product_order_list['ProductPayments'] = product_payments_json(ProductPayments.objects.last())
-                # for rewards_point in OrderProduct.objects.filter(user=user, order=order):
-                #     if ProductReward.objects.filter(user=user, order=order).exists():
-                #         product_reward = ProductReward.objects.get(user=user, order=order)
-                #         product_reward.reward_point += rewards_point.product.rewards
-                #         product_reward.save()
-                #     else:
-                #         ProductReward(user=user, order=order, reward_point=rewards_point.product.rewards).save()
                 if ProductReward.objects.filter(user=user).exists():
                     product_order_list['ProductReward'] = product_reward_json(ProductReward.objects.get(user=user))
                 else:
@@ -359,6 +382,10 @@ def order_product_cancel_view(request, form=None):
                     j['order'] = str(k.order.order_id)
                 if k.product:
                     j['product'] = product_data_json(k.product)
+                if k.created_at:
+                    j['created_at'] = str(k.created_at.strftime("%Y/%m/%d %H:%M:%S"))
+                if k.delivery_charges is None:
+                    j['delivery_charges'] = 0.0
                 for m in j:
                     if j[m] is None:
                         j[m] = ''

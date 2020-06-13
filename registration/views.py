@@ -19,6 +19,62 @@ from products.models import UserCategory, Category
 
 
 @api_view(['GET', 'POST'])
+@decorator_from_middleware(UserRegisterMiddleware)
+def user_register(request, form=None):
+    if request.method == "POST":
+        try:
+            new_user = CreateUserService.execute({
+                'password': form.cleaned_data.get('password'),
+                'username': form.cleaned_data.get('username'),
+                'first_name': form.cleaned_data.get('first_name'),
+                'last_name': form.cleaned_data.get('last_name'),
+                'email': form.cleaned_data.get('email'),
+                'gender': form.cleaned_data.get('gender').id if form.cleaned_data.get('gender').id else None,
+                'role': form.cleaned_data.get('role').id if form.cleaned_data.get('role') else None,
+                'is_active': form.cleaned_data.get('is_active'),
+                'mobile': form.cleaned_data.get('mobile'),
+                'date_of_birth': form.cleaned_data.get('date_of_birth'),
+                'account_id': form.cleaned_data.get('account_id'),
+                'city': form.cleaned_data.get('city').id if form.cleaned_data.get('city') else None,
+                'state': form.cleaned_data.get('state').id if form.cleaned_data.get('state') else None,
+                'address': form.cleaned_data.get('address'),
+                'pincode': form.cleaned_data.get('pincode'),
+                'gst_number': form.cleaned_data.get('gst_number'),
+                'document_type': form.cleaned_data.get('document_type').id if form.cleaned_data.get(
+                    'document_type') else None,
+                'business_type': form.cleaned_data.get('business_type').id if form.cleaned_data.get(
+                    'business_type') else None,
+                'business_name': form.cleaned_data.get('business_name'),
+                'business_description': form.cleaned_data.get('business_description'),
+                'alternate_mobile': form.cleaned_data.get('alternate_mobile'),
+                'status': True if form.cleaned_data.get('status') else None,
+            }, {'user_profile_img': form.cleaned_data.get('user_profile_img'),
+                'varification_document_front': form.cleaned_data.get('varification_document_front'),
+                'varification_document_back': form.cleaned_data.get('varification_document_back'),
+                })
+            if isinstance(new_user, dict):
+                return_json['valid'] = True
+                return_json['message'] = "Error to Created user "
+                return_json['count_result'] = 1
+                return_json['data'] = new_user
+            else:
+                return_json['valid'] = True
+                return_json['message'] = "User Successfully Created"
+                return_json['count_result'] = 1
+                return_json['data'] = UserInfo(new_user)
+            return JsonResponse(return_json, status=200)
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+            return_json['valid'] = False
+            return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+            return_json['count_result'] = 1
+            return_json['data'] = None
+            return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
 @decorator_from_middleware(LoginMiddleware)
 def user_login(request, form):
     if request.method == "POST":

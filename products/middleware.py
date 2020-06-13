@@ -80,9 +80,14 @@ class ProductOrderMiddleware(MiddlewareMixin):
                         j['order'] = str(k.order.order_id)
                     if k.product:
                         j['product'] = product_data_json(k.product)
+                    if k.created_at:
+                        j['created_at'] = str(k.created_at.strftime("%Y/%m/%d %H:%M:%S"))
+                    if k.delivery_charges is None:
+                        j['delivery_charges'] = 0.0
                     for m in j:
                         if j[m] is None:
                             j[m] = ''
+
                     product_order_list.append(j)
                 product_reward = product_reward_json(ProductReward.objects.get(user=user))
                 product_payment = product_payments_json(i)

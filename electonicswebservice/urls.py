@@ -26,12 +26,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', admin.site.urls),
+    path('api/v1/user/register/', user_register),
     path('api/v1/user/login/', user_login),
     path('api/v1/user/logout/', user_logout_view),
     path('api/v1/user/forgot-password/', forget_password),
     path('api/v1/user/forgot-password/referral/', verify_forget_password),
     path('api/v1/user/profile/', user_profile),
     path('api/v1/user/city/', city_data_view),
+    path('api/v1/user/reward/', user_reward_view),
     path('api/v1/products/category/', category_data_view),
     path('api/v1/products/category/<int:page>/', category_data_view),
     path('api/v1/products/brands/', brand_data_view),

@@ -14,7 +14,8 @@ from datetime import datetime, timedelta
 import json
 from django.forms.models import model_to_dict
 
-View_class = ['user_login', 'index', 'login', 'forget_password', 'verify_forget_password', 'media', 'serve']
+View_class = ['user_register', 'user_login', 'index', 'login', 'forget_password', 'verify_forget_password', 'media',
+              'serve']
 
 
 class CommonMiddleware(MiddlewareMixin):
@@ -101,6 +102,32 @@ class StandardExceptionMiddleware(MiddlewareMixin):
         return_json['count_result'] = 1
         return_json['data'] = None
         return JsonResponse(return_json, status=200, safe=False)
+
+
+class UserRegisterMiddleware(MiddlewareMixin):
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        try:
+            if request.method == "POST":
+                form = RegisterForm(request.POST)
+                if not form.is_valid():
+                    if form.errors:
+                        return_json['valid'] = False
+                        return_json['message'] = eval(form.errors.as_json())
+                        return_json['count_result'] = 1
+                        return_json['data'] = None
+                        logger.error(form.errors)
+                        return JsonResponse(return_json, status=200)
+                else:
+                    return view_func(request, form)
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            logger.error(e)
+            return_json['valid'] = False
+            return_json['message'] = f'{e}, {f_name}, {exc_tb.tb_lineno}'
+            return_json['count_result'] = 1
+            return_json['data'] = None
+            return JsonResponse(return_json, status=200)
 
 
 class LoginMiddleware(MiddlewareMixin):

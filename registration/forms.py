@@ -45,7 +45,7 @@ class RegisterForm(ModelForm):
     gender = GenderChoiceField(queryset=Gender.objects.all(), required=True)
     role = RoleChoiceField(queryset=Role.objects.all(), required=True)
     user_profile_img = forms.ImageField(required=False)
-    account_id = forms.CharField(required=True, widget=forms.TextInput(attrs={'readonly': 'readonly'}),
+    account_id = forms.CharField(required=False, widget=forms.TextInput(attrs={'readonly': 'readonly'}),
                                  initial=randint(10**(8-1), (10**8)-1))
     city = CityChoiceField(queryset=City.objects.all(), required=False)
     state = StateChoiceField(queryset=State.objects.all(), required=False)
