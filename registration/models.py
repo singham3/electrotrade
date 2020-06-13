@@ -64,7 +64,7 @@ class Register(models.Model):
     last_name = models.CharField(max_length=100, null=True)
     email = models.EmailField(max_length=100,  null=True)
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, null=True)
-    role = models.ForeignKey(Role, on_delete=models.CASCADE)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateField(auto_now_add=True)
     mobile = models.CharField(max_length=15,  null=True)

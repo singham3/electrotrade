@@ -36,14 +36,13 @@ class BusinessTypeChoiceField(forms.ModelChoiceField):
 
 class RegisterForm(ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(), required=False)
-    confirm_password = forms.CharField(widget=forms.PasswordInput(), required=False)
     username = forms.CharField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     email = forms.EmailField(required=True)
     mobile = forms.CharField(required=True)
-    gender = GenderChoiceField(queryset=Gender.objects.all(), required=True)
-    role = RoleChoiceField(queryset=Role.objects.all(), required=True)
+    gender = GenderChoiceField(queryset=Gender.objects.all(), required=False)
+    role = RoleChoiceField(queryset=Role.objects.all(), required=False)
     user_profile_img = forms.ImageField(required=False)
     account_id = forms.CharField(required=False, widget=forms.TextInput(attrs={'readonly': 'readonly'}),
                                  initial=randint(10**(8-1), (10**8)-1))
@@ -68,7 +67,7 @@ class RegisterForm(ModelForm):
                   'role', 'email', 'city', 'state', 'address', 'pincode', 'gst_number', 'account_id',
                   'varification_document_front', 'varification_document_back', 'document_type', 'business_type',
                   'business_name', 'business_description', 'alternate_mobile', 'is_active', 'status',
-                  'password', 'confirm_password')
+                  'password')
 
     def clean(self):
         cleaned_data = super(RegisterForm, self).clean()
@@ -77,20 +76,8 @@ class RegisterForm(ModelForm):
         email = cleaned_data.get("email")
         username = cleaned_data.get("username")
         password = cleaned_data.get("password")
-        confirm_password = cleaned_data.get("confirm_password")
         if Register.objects.filter(username=username, account_id=account_id).exists():
-            if password:
-                if confirm_password:
-                    if password == confirm_password:
-                        return cleaned_data
-                    else:
-                        raise forms.ValidationError("password and confirm password does not match")
-                else:
-                    raise forms.ValidationError("confirm password field is required")
-            elif confirm_password:
-                raise forms.ValidationError("password field is required")
-            else:
-                return cleaned_data
+            return cleaned_data
         else:
             if Register.objects.filter(email=email).exists():
                 raise forms.ValidationError("Email already exists !!!!!!")
@@ -100,17 +87,7 @@ class RegisterForm(ModelForm):
                 raise forms.ValidationError("mobile already exists !!!!!!")
             if Register.objects.filter(account_id=account_id).exists():
                 raise forms.ValidationError("Account Id already exists !!!!!!")
-            if password:
-                if confirm_password:
-                    if password == confirm_password:
-                        return cleaned_data
-                    else:
-                        raise forms.ValidationError("password and confirm password does not match")
-                else:
-                    raise forms.ValidationError("confirm password field is required")
-            elif confirm_password:
-                raise forms.ValidationError("password field is required")
-            else:
+            if password is None or password == '':
                 raise forms.ValidationError("password field is required")
 
 

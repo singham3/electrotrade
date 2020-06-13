@@ -10,7 +10,8 @@ from django.forms.models import model_to_dict
 class RegisterAdminView(admin.ModelAdmin):
 
     def role_name(self, obj):
-        return obj.role.role_name
+        if obj is not None:
+            return obj.role.role_name
     list_display = ('id', 'username', 'email', 'first_name', 'last_name',  'role_name', 'account_id', 'user_profile_img',
                     'status', 'date_joined')
     form = RegisterForm
@@ -29,7 +30,7 @@ class RegisterAdminView(admin.ModelAdmin):
                     'first_name': form.cleaned_data.get('first_name'),
                     'last_name': form.cleaned_data.get('last_name'),
                     'email': form.cleaned_data.get('email'),
-                    'gender': form.cleaned_data.get('gender').id if form.cleaned_data.get('gender').id else None,
+                    'gender': form.cleaned_data.get('gender').id if form.cleaned_data.get('gender') else None,
                     'role': form.cleaned_data.get('role').id if form.cleaned_data.get('role') else None,
                     'is_active': form.cleaned_data.get('is_active'),
                     'mobile': form.cleaned_data.get('mobile'),

@@ -16,6 +16,7 @@ import os
 import sys
 import hashlib
 from products.models import UserCategory, Category
+from django.db.models.query import QuerySet
 
 
 @api_view(['GET', 'POST'])
@@ -29,7 +30,7 @@ def user_register(request, form=None):
                 'first_name': form.cleaned_data.get('first_name'),
                 'last_name': form.cleaned_data.get('last_name'),
                 'email': form.cleaned_data.get('email'),
-                'gender': form.cleaned_data.get('gender').id if form.cleaned_data.get('gender').id else None,
+                'gender': form.cleaned_data.get('gender').id if form.cleaned_data.get('gender') else None,
                 'role': form.cleaned_data.get('role').id if form.cleaned_data.get('role') else None,
                 'is_active': form.cleaned_data.get('is_active'),
                 'mobile': form.cleaned_data.get('mobile'),
