@@ -15,8 +15,27 @@ from .emailsend import *
 import os
 import sys
 import hashlib
-from products.models import UserCategory, Category
+from products.models import UserCategory, Category, OrderAddress
 from django.db.models.query import QuerySet
+
+
+@api_view(['GET', 'POST'])
+def user_delete(request, id=None):
+    if Register.objects.filter(id=id).exists():
+        user = Register.objects.get(id=id)
+        if OrderAddress.objects.filter(user=user).exists():
+            OrderAddress.objects.get(user=user).delete()
+        user.delete()
+        return_json['valid'] = True
+        return_json['message'] = "User Successfully Delete"
+        return_json['count_result'] = 1
+        return_json['data'] = 'Done'
+    else:
+        return_json['valid'] = False
+        return_json['message'] = "User not exists"
+        return_json['count_result'] = 0
+        return_json['data'] = 'User not exists'
+    return JsonResponse(return_json, status=200)
 
 
 @api_view(['GET', 'POST'])

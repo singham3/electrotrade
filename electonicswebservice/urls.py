@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/v1/user/register/', user_register),
     path('api/v1/user/login/', user_login),
     path('api/v1/user/logout/', user_logout_view),
+    path('api/v1/user/delete/<int:id>/', user_delete),
     path('api/v1/user/forgot-password/', forget_password),
     path('api/v1/user/forgot-password/referral/', verify_forget_password),
     path('api/v1/user/profile/', user_profile),

@@ -14,8 +14,8 @@ from datetime import datetime, timedelta
 import json
 from django.forms.models import model_to_dict
 
-View_class = ['user_register', 'user_login', 'index', 'login', 'forget_password', 'verify_forget_password', 'media',
-              'serve']
+View_class = ['user_delete', 'user_register', 'user_login', 'index', 'login', 'forget_password',
+              'verify_forget_password', 'media', 'serve']
 
 
 class CommonMiddleware(MiddlewareMixin):

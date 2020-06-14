@@ -8,7 +8,6 @@ from django.forms.models import model_to_dict
 
 
 class RegisterAdminView(admin.ModelAdmin):
-
     def role_name(self, obj):
         if obj is not None:
             return obj.role.role_name
