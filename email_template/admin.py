@@ -5,7 +5,7 @@ from electonicswebservice.admininfo import *
 
 
 class EmailTemplateAdminView(admin.ModelAdmin):
-    list_display = ('id', 'subject', 'status', 'created_at')
+    list_display = ('id', 'subject',  'created_at')
 
 
 class MainEmailLayoutModelAdminView(admin.ModelAdmin):
