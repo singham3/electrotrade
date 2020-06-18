@@ -332,8 +332,92 @@ def city_data_view(request, page=1):
             return_json['data'] = category_data_list
         return JsonResponse(return_json, safe=False, status=200)
     except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
         return_json['valid'] = False
-        return_json['message'] = f"{e}"
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
         return_json['count_result'] = 1
         return_json['data'] = None
         return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+@decorator_from_middleware(LoginWithOtpSendMiddleware)
+def login_with_otp_send(request, form=None):
+    try:
+        if request.method == 'POST':
+            mobile_or_email = form.cleaned_data.get('mobile_or_email')
+            if Register.objects.filter(mobile=mobile_or_email, is_mobile=True):
+                user_data = Register.objects.get(mobile=mobile_or_email, is_mobile=True)
+                otp_response = token_sms(user_data.mobile)
+                return JsonResponse(otp_response, safe=False, status=200)
+            elif Register.objects.filter(email=mobile_or_email, is_email=True):
+                user_data = Register.objects.get(email=mobile_or_email, is_email=True)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+@decorator_from_middleware(LoginWithOtpVerifyMiddleware)
+def login_with_otp_verify(request, form=None):
+    if request.method == 'POST':
+        mobile_or_email = form.cleaned_data.get('mobile_or_email')
+        otp = form.cleaned_data.get('otp')
+        is_otp_verify = False
+        user_data = None
+        if len(otp) == 4:
+            if Register.objects.filter(mobile=mobile_or_email, is_mobile=True):
+                user_data = Register.objects.get(mobile=mobile_or_email, is_mobile=True)
+                otp_response = verify(user_data.mobile, otp)
+                if otp_response['valid'] and otp_response['message'] == "SMS request successfully verify":
+                    is_otp_verify = True
+        if is_otp_verify:
+            try:
+                if user_data is not None:
+
+                    token = jwt.encode({
+                        'account_id': user_data.account_id,
+                        'username': user_data.username,
+                        'token_created_at': str(datetime.now()),
+                        'a': {2: True}},
+                        token_key["token_key"],
+                        algorithm='HS256'
+                    )
+                    user_data.token = token.decode()
+                    user_data.last_login = datetime.now()
+                    user_data.key = None
+                    user_data.save()
+                    users_data = UserInfo(user_data)
+                    if UserCategory.objects.filter(user=user_data).exists():
+                        category_data = UserCategory.objects.get(user=user_data)
+                        users_data['Category'] = category_data.list_category
+                    else:
+                        users_data['Category'] = [""]
+                    return_json['valid'] = True
+                    return_json['message'] = "Successfully Login"
+                    return_json['count_result'] = 1
+                    return_json['data'] = users_data
+                    return JsonResponse(return_json, safe=False, status=200)
+                else:
+                    return_json['valid'] = False
+                    return_json['message'] = "Incorrect username and password"
+                    return_json['count_result'] = 1
+                    return_json['data'] = None
+                    return JsonResponse(return_json, status=200, safe=False)
+            except Register.DoesNotExist:
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+                return_json['valid'] = False
+                return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+                return_json['count_result'] = 1
+                return_json['data'] = None
+                return JsonResponse(return_json, status=200, safe=False)

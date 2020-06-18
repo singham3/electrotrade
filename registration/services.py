@@ -74,6 +74,12 @@ class CreateUserService(Service):
                 user_data.pincode = _pincode
                 user_data.gst_number = _gst_number
                 user_data.document_type = _document_type
+                if self.cleaned_data["mobile"]:
+                    user_data.mobile = self.cleaned_data["mobile"]
+                    user_data.is_mobile = False
+                if self.cleaned_data["email"]:
+                    user_data.email = self.cleaned_data["email"]
+                    user_data.is_email = False
                 user_data.varification_document_front = _varification_document_front
                 user_data.varification_document_back = _varification_document_back
                 user_data.status = bool(_status)

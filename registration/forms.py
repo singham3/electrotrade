@@ -2,6 +2,7 @@ from django import forms
 from .models import *
 from electonicswebservice.admininfo import *
 from django.forms import BaseModelForm, ModelForm
+import sys, os
 
 
 class StateChoiceField(forms.ModelChoiceField):
@@ -167,3 +168,52 @@ class UserProfileEditForm(forms.Form):
     def clean(self):
         cleaned_data = super(UserProfileEditForm, self).clean()
         return cleaned_data
+
+
+class LoginWithOtpSendForm(forms.Form):
+    mobile_or_email = forms.CharField(required=True)
+
+    class Meta:
+        model = Register
+        fields = ('mobile_or_email', )
+
+    def clean(self):
+        cleaned_data = super(LoginWithOtpSendForm, self).clean()
+        mobile_or_email = cleaned_data.get("mobile_or_email")
+        if not Register.objects.filter(mobile=mobile_or_email, is_mobile=True).exists():
+            if not Register.objects.filter(email=mobile_or_email, is_email=True).exists():
+                raise forms.ValidationError("Address is not Exists or verified")
+            else:
+                return cleaned_data
+        else:
+            return cleaned_data
+
+
+class LoginWithOtpVerifyForm(forms.Form):
+    mobile_or_email = forms.CharField(required=True)
+    otp = forms.CharField(required=True)
+
+    class Meta:
+        model = Register
+        fields = ('mobile_or_email', 'otp')
+
+    def clean(self):
+        try:
+            cleaned_data = super(LoginWithOtpVerifyForm, self).clean()
+            mobile_or_email = cleaned_data.get("mobile_or_email")
+            otp = cleaned_data.get("otp")
+            if len(otp) not in (4, 6):
+                raise forms.ValidationError('OTP format is not correct')
+            otp = int(otp)
+            if not Register.objects.filter(mobile=mobile_or_email, is_mobile=True).exists():
+                if not Register.objects.filter(email=mobile_or_email, is_email=True).exists():
+                    raise forms.ValidationError("Address is not Exists or verified")
+                else:
+                    return cleaned_data
+            else:
+                return cleaned_data
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+            raise forms.ValidationError(f"{e}, {f_name}, {exc_tb.tb_lineno}")
