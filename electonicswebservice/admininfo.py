@@ -7,6 +7,11 @@ from .hashers import *
 from django.core.paginator import Paginator
 
 
+token_key = json.load(open('/var/www/html/electonicswebservice/config/secret-key.json'))
+jsondata = json.load(open("/var/www/html/electonicswebservice/config/adminappconfig/config.json"))
+private_config_data = json.load(open('/var/www/html/electonicswebservice/config/adminappconfig/project_config.json'))
+
+
 logging.basicConfig(filename="/var/www/html/electonicswebservice/debug/debug.log",
                     format='%(asctime)s %(name)-15s %(levelname)-5s %(message)s : [%(pathname)s line %(lineno)d, in %(funcName)s ]',
                     filemode='w')

@@ -32,8 +32,6 @@ urlpatterns = [
     path('api/v1/user/login/otp/verify/', login_with_otp_verify),
     path('api/v1/user/logout/', user_logout_view),
     path('api/v1/user/delete/<int:id>/', user_delete),
-    path('api/v1/user/forgot-password/', forget_password),
-    path('api/v1/user/forgot-password/referral/', verify_forget_password),
     path('api/v1/user/profile/', user_profile),
     path('api/v1/user/city/', city_data_view),
     path('api/v1/user/reward/', user_reward_view),

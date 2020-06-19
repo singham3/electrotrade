@@ -22,23 +22,19 @@ def create_smtp_details(sender, **kwargs):
     try:
         SMTPDetailModel.objects.get()
     except SMTPDetailModel.DoesNotExist:
-        if not path.exists('config/adminappconfig/private_key.pem') or not path.exists('config/adminappconfig/public_key.pem'):
+        if not path.exists('/var/www/html/electonicswebservice/config/adminappconfig/private_key.pem') or not path.exists('/var/www/html/electonicswebservice/config/adminappconfig/public_key.pem'):
             exprivatekey, expublickey = generate_keys_rsa()
-            open('config/adminappconfig/private_key.pem', 'wb').write(exprivatekey.encode())
-            open('config/adminappconfig/public_key.pem', 'wb').write(expublickey.encode())
+            open('/var/www/html/electonicswebservice/config/adminappconfig/private_key.pem', 'wb').write(exprivatekey.encode())
+            open('/var/www/html/electonicswebservice/config/adminappconfig/public_key.pem', 'wb').write(expublickey.encode())
             public_key = open('config/adminappconfig/public_key.pem', 'rb').read().decode()
         else:
-            public_key = open('config/adminappconfig/public_key.pem', 'rb').read().decode()
+            public_key = open('/var/www/html/electonicswebservice/config/adminappconfig/public_key.pem', 'rb').read().decode()
         SMTPDetailModel.objects.create(smtp_host=user_json_data['smtp_details']['SMTPUSERNAME'],
                                        smtp_email=user_json_data['smtp_details']['SMTP_EMAIL'],
                                        smtp_password=encrypt_message_rsa(user_json_data['smtp_details']['SMTPPASSWORD'],
                                                                          public_key),
                                        smtp_port=user_json_data['smtp_details']['SMTPPORT']
                                        )
-        user_json_data['smtp_details']['SMTPPASSWORD'] = encrypt_message_rsa(
-                                                                        user_json_data['smtp_details']['SMTPPASSWORD'],
-                                                                        public_key)
-        json.dump(user_json_data, open("config/adminappconfig/config.json", "w"), indent=2)
 
 
 class ExampleAppConfig(AppConfig):

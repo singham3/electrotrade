@@ -6,6 +6,7 @@ from .html import *
 from electonicswebservice.hashers import *
 import random
 import string
+from random import randint
 from datetime import datetime, timedelta
 import jwt
 from .models import *
@@ -15,74 +16,66 @@ from os import path
 import sys
 
 
-token_key = json.load(open('/var/www/html/electonicswebservice/config/secret-key.json'))
-jsondata = json.load(open("/var/www/html/electonicswebservice/config/adminappconfig/config.json"))
-private_config_data = json.load(open('/var/www/html/electonicswebservice/config/adminappconfig/project_config.json'))
-
-
-def generate_url(user_obj):
-    key = ''.join(random.choice(string.ascii_lowercase) for i in range(10))
-    user_obj.key = key
-    user_obj.save()
-    userdat = [user_obj.email, user_obj.username, user_obj.account_id, key]
-    token = "{}".format(jwt.encode(
-                                {"data": encrypt_message_rsa(str(userdat), public_key),
-                                 'token_created_at': str(datetime.now()),
-                                 'a': {2: True},
-                                 'exp': datetime.utcnow() + timedelta(seconds=86400)},
-                                token_key["token_key"], algorithm='HS256').decode('utf-8'))
-    return '''http://{}:{}/api/v1/user/forgot-password/referral/?token={}'''.format(private_config_data['host'],
-                                                                                    private_config_data['port'], token)
-
-
-def email_html(email_content, email_template_data):
+def email_send_otp_html(otp):
     try:
-        maincontaint = str(email_template_data.template_content)
-        maincontaint = maincontaint.replace('##USERNAME##', email_content['username'], 1)
-        maincontaint = maincontaint.replace('##RESETURL##', email_content['rmpurl'], 1)
-        maincontaint = maincontaint.replace('##SYSTEM_APPLICATION_NAME##', email_content['fromname'], 1)
-        maincontaint = maincontaint.replace('##SYSTEM_LOGO##', '', 1)
-        footer = str(email_template_data.footer_text)
-        footer = footer.replace('##YEAR##', str(datetime.now().year), 1)
-        mainemaillayoyt = MainEmailLayoutModel.objects.get()
-        html = str(mainemaillayoyt.layout_html)
-        html = html.replace("##EMAIL_CONTENT##", maincontaint, 1)
-        html = html.replace("##EMAIL_FOOTER##", "", 1)
-        html = html.replace("##COPYRIGHT_TEXT##", footer, 1)
+        main_html = MainEmailLayoutModel.objects.get(title='main email tamplate')
+        mail_content = EmailTemplate.objects.get(subject='email otp')
+        if mail_content.content_1 is None:
+            content_1 = ''
+        else:
+            content_1 = mail_content.content_1
+        if mail_content.content_2 is None:
+            content_2 = ''
+        else:
+            content_2 = mail_content.content_2.replace("#OTP", str(otp), 1)
+        if mail_content.content_3 is None:
+            content_3 = ''
+        else:
+            content_3 = mail_content.content_3
+        if mail_content.content_4 is None:
+            content_4 = ''
+        else:
+            content_4 = mail_content.content_4
+        html = main_html.layout_html
+        html = html.replace("#CONTANT1", content_1, 1)
+        html = html.replace("#CONTANT2", content_2, 1)
+        html = html.replace("#CONTANT3", content_3, 1)
+        html = html.replace("#CONTANT4", content_4, 1)
         return html
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
         logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-        print(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-        return None
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return return_json
+
+
+def email_send_otp_generate(user_data):
+    rand_int = randint(10**(6-1), (10**6)-1)
+    user_data.key = rand_int
+    user_data.save()
+    return rand_int
 
 
 def smtp_details():
-    if SMTPDetailModel.objects.filter().exists():
-        smtpdb = SMTPDetailModel.objects.get()
-        sender_email = smtpdb.smtp_email
-        smtpurl = smtpdb.smtp_host
-        smtpport = int(smtpdb.smtp_port)
-        password = decrypt_message_rsa(smtpdb.smtp_password, private_key)
-    else:
-        sender_email = jsondata['smtp_details']["SMTP_EMAIL"]
-        smtpurl = jsondata['smtp_details']["SMTPUSERNAME"]
-        smtpport = int(jsondata['smtp_details']["SMTPPORT"])
-        password = decrypt_message_rsa(jsondata['smtp_details']["SMTPPASSWORD"], private_key)
+    smtpdb = SMTPDetailModel.objects.get()
+    sender_email = smtpdb.smtp_email
+    smtpurl = smtpdb.smtp_host
+    smtpport = int(smtpdb.smtp_port)
+    password = decrypt_message_rsa(smtpdb.smtp_password, private_key)
     return sender_email, smtpurl, smtpport, password
 
 
-def email_send(receiver_email, email_template_data):
+def email_send(receiver_email, email_subject, html):
     try:
         sender_email, smtpurl, smtpport, password = smtp_details()
         message = MIMEMultipart("alternative")
-        message["Subject"] = email_template_data.subject
+        message["Subject"] = email_subject
         message["From"] = sender_email
         message["To"] = receiver_email.email
-        email_content = {"username": receiver_email.username, "rmpurl": generate_url(receiver_email),
-                         "fromname": "Admin LTE"}
-        html = email_html(email_content, email_template_data)
         part1 = MIMEText("", "text")
         part2 = MIMEText(html, "html")
         message.attach(part1)
@@ -91,9 +84,17 @@ def email_send(receiver_email, email_template_data):
         with smtplib.SMTP_SSL(smtpurl, smtpport, context=context) as server:
             server.login(sender_email, password)
             server.sendmail(sender_email, receiver_email.email, message.as_string())
-        return {"msg": "Mail Successfully Sent"}
+        return_json['valid'] = True
+        return_json['message'] = "Mail Successfully Sent"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return return_json
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
         logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-        return {"error": str((e, exc_type, f_name, exc_tb.tb_lineno))}
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return return_json

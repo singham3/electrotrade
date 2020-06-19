@@ -5,6 +5,9 @@ from .forms import *
 from django.http import JsonResponse, HttpResponse
 from .services import *
 from django.forms.models import model_to_dict
+from electonicswebservice.hashers import *
+from django.contrib import messages
+import json
 
 
 class RegisterAdminView(admin.ModelAdmin):
@@ -93,6 +96,31 @@ class DocumentTypeAdminView(admin.ModelAdmin):
 
 class SMTPDetailModelAdminView(admin.ModelAdmin):
     list_display = ('id', 'created_at')
+
+    def save_model(self, request, obj, form, change):
+        if request.method == 'POST':
+            try:
+                smtp_host = request.POST.get('smtp_host')
+                smtp_email = request.POST.get('smtp_email')
+                smtp_password = encrypt_message_rsa(request.POST.get('smtp_password'), public_key)
+                smtp_port = int(request.POST.get('smtp_port'))
+                if SMTPDetailModel.objects.filter().exists():
+                    smtp_obj = SMTPDetailModel.objects.get()
+                    smtp_obj.smtp_host = smtp_host
+                    smtp_obj.smtp_email = smtp_email
+                    smtp_obj.smtp_password = smtp_password
+                    smtp_obj.smtp_port = smtp_port
+                    smtp_obj.updated_at = datetime.now()
+                    smtp_obj.save()
+                else:
+                    SMTPDetailModel(smtp_host=smtp_host, smtp_email=smtp_email, smtp_password=smtp_password,
+                                    smtp_port=smtp_port).save()
+                messages.info(request, "Successfully Update SMTP Details", )
+            except Exception as e:
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+                messages.error(request, f"{e}, {f_name}, {exc_tb.tb_lineno}")
 
 
 class BusinessTypeAdminView(admin.ModelAdmin):

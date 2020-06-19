@@ -4,10 +4,10 @@ from django.db import models
 
 class EmailTemplate(models.Model):
     subject = models.CharField(max_length=200)
-    content_1 = models.TextField(max_length=65500)
-    content_2 = models.TextField(max_length=65500)
-    content_3 = models.TextField(max_length=65500)
-    content_4 = models.TextField(max_length=65500)
+    content_1 = models.TextField(max_length=65500, null=True, blank=True)
+    content_2 = models.TextField(max_length=65500, null=True, blank=True)
+    content_3 = models.TextField(max_length=65500, null=True, blank=True)
+    content_4 = models.TextField(max_length=65500, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 

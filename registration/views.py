@@ -17,6 +17,8 @@ import sys
 import hashlib
 from products.models import UserCategory, Category, OrderAddress
 from django.db.models.query import QuerySet
+from electonicswebservice.admininfo import *
+from bs4 import BeautifulSoup
 
 
 @api_view(['GET', 'POST'])
@@ -229,84 +231,6 @@ def user_logout_view(request):
 
 
 @api_view(['GET', 'POST'])
-@decorator_from_middleware(ForgetPasswordMiddleware)
-def forget_password(request, form):
-    if request.method == "POST":
-        try:
-            email = form.cleaned_data.get('email')
-            if Register.objects.filter(email=email).exists():
-                userdat = Register.objects.get(email=email)
-                responce = email_send(userdat,
-                                      EmailTemplate.objects.get()
-                                      )
-                userdat.updatedate = datetime.now()
-                userdat.save()
-                return_json['valid'] = True
-                return_json['message'] = "Successfully Email Sent"
-                return_json['count_result'] = 1
-                return_json['data'] = responce
-                return JsonResponse(return_json, status=200, safe=False)
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-            return_json['valid'] = False
-            return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
-            return_json['count_result'] = 1
-            return_json['data'] = None
-            return JsonResponse(return_json, status=200, safe=False)
-
-
-@api_view(['GET', 'POST'])
-@decorator_from_middleware(VerifyPasswordMiddleware)
-def verify_forget_password(request, form):
-    try:
-        token = request.GET['token']
-        data = jwt.decode(token,  token_key["token_key"], 'utf-8')
-        if datetime.now() - datetime.strptime(str(data["token_created_at"]),
-                                              '%Y-%m-%d %H:%M:%S.%f') < timedelta(hours=4,  minutes=1):
-            realdata = eval(decrypt_message_rsa(data["data"],  private_key))
-            if Register.objects.filter(email=realdata[0], username=realdata[1], account_id=realdata[2],
-                                       key=realdata[3]).exists():
-                userdata = Register.objects.get(email=realdata[0], username=realdata[1], account_id=realdata[2],
-                                                key=realdata[3])
-                if request.method == "POST":
-                    password = form.cleaned_data.get("password")
-                    userdata.key = None
-                    userdata.password = hashlib.sha256(password.encode()).hexdigest()
-                    userdata.save()
-                    logger.info("{} Successfully Password Changed".format(realdata[0]))
-                    return_json['valid'] = True
-                    return_json['message'] = "Successfully Update"
-                    return_json['count_result'] = 1
-                    return_json['data'] = UserInfo(userdata)
-                    return JsonResponse(return_json, status=200, safe=False)
-            else:
-                logger.error("User Details not Valid")
-                return_json['valid'] = False
-                return_json['message'] = "ser Details not Valid"
-                return_json['count_result'] = 1
-                return_json['data'] = None
-                return JsonResponse(return_json, status=200, safe=False)
-        else:
-            logger.error("Token Time Out")
-            return_json['valid'] = False
-            return_json['message'] = "Token Time Out"
-            return_json['count_result'] = 1
-            return_json['data'] = None
-            return JsonResponse(return_json, status=200, safe=False)
-    except Exception as e:
-        exc_type, exc_obj, exc_tb = sys.exc_info()
-        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-        return_json['valid'] = False
-        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
-        return_json['count_result'] = 1
-        return_json['data'] = None
-        return JsonResponse(return_json, status=200, safe=False)
-
-
-@api_view(['GET', 'POST'])
 def city_data_view(request, page=1):
     try:
         city_data = alldata(City, page)
@@ -354,6 +278,18 @@ def login_with_otp_send(request, form=None):
                 return JsonResponse(otp_response, safe=False, status=200)
             elif Register.objects.filter(email=mobile_or_email, is_email=True):
                 user_data = Register.objects.get(email=mobile_or_email, is_email=True)
+                otp = email_send_otp_generate(user_data)
+                html_ = email_send_otp_html(otp)
+                soup = BeautifulSoup(html_)
+                h = soup.prettify('ascii', formatter='html')
+                open('/var/www/html/electonicswebservice/debug/test.html', 'w').write(
+                    h
+                )
+                if isinstance(html_, dict):
+                    return_json_ = html_
+                else:
+                    return_json_ = email_send(user_data, 'Electrotrade Verification Code For Login', html_)
+                return JsonResponse(return_json_, status=200, safe=False)
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]

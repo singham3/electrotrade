@@ -1,0 +1,1 @@
+2020-06-19 05:09:08,107 root            ERROR (TypeError('write() argument must be str, not bytes',), <class 'TypeError'>, 'views.py', 286) : [/var/www/html/electonicswebservice/registration/views.py line 296, in login_with_otp_send ]
