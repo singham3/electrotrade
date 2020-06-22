@@ -1,1 +1,523 @@
-2020-06-19 05:09:08,107 root            ERROR (TypeError('write() argument must be str, not bytes',), <class 'TypeError'>, 'views.py', 286) : [/var/www/html/electonicswebservice/registration/views.py line 296, in login_with_otp_send ]
+2020-06-21 12:58:49,408 botocore.hooks  DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,412 botocore.hooks  DEBUG Changing event name from before-call.apigateway to before-call.api-gateway : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,413 botocore.hooks  DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,415 botocore.hooks  DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,415 botocore.hooks  DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,416 botocore.hooks  DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,416 botocore.hooks  DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,419 botocore.hooks  DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,419 botocore.hooks  DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,420 botocore.hooks  DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,420 botocore.hooks  DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 12:58:49,427 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/data/s3/2006-03-01/resources-1.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 12:58:49,430 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/endpoints.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 12:58:49,464 botocore.hooks  DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f26bd5a3488> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,471 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/s3/2006-03-01/service-2.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 12:58:49,481 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f26bd5edd08> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,481 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f26bd85ab70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,492 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f26bd5edae8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,495 botocore.endpoint DEBUG Setting s3 timeout as (60, 60) : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/endpoint.py line 266, in create_endpoint ]
+2020-06-21 12:58:49,496 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/_retry.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 12:58:49,497 botocore.client DEBUG Registering retry handlers for service: s3 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/client.py line 159, in _register_legacy_retries ]
+2020-06-21 12:58:49,498 boto3.resources.factory DEBUG Loading s3:s3 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/factory.py line 66, in load_from_definition ]
+2020-06-21 12:58:49,499 boto3.resources.factory DEBUG Loading s3:Bucket : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/factory.py line 66, in load_from_definition ]
+2020-06-21 12:58:49,499 boto3.resources.model DEBUG Renaming Bucket attribute name : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/model.py line 358, in _load_name_with_category ]
+2020-06-21 12:58:49,500 botocore.hooks  DEBUG Event creating-resource-class.s3.Bucket: calling handler <function lazy_call.<locals>._handler at 0x7f26bd8542f0> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,501 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,501 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,501 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bd261a20>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,501 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bd220048>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,501 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,502 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bd4a3be0>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,502 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bd2200b8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 12:58:49,502 botocore.utils  DEBUG Defaulting to S3 virtual host style addressing with path style addressing fallback. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1560, in _s3_addressing_handler ]
+2020-06-21 12:58:49,502 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 12:58:49,502 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 12:58:49,502 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 12:58:49,502 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 12:58:49,502 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592747929
+/electrotrade/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:00:19,166 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.authy.com:443 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/urllib3/connectionpool.py line 959, in _new_conn ]
+2020-06-21 13:00:19,973 urllib3.connectionpool DEBUG https://api.authy.com:443 "POST /protected/json/phones/verification/start HTTP/1.1" 200 None : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/urllib3/connectionpool.py line 437, in _make_request ]
+2020-06-21 13:00:37,731 urllib3.connectionpool DEBUG Starting new HTTPS connection (1): api.authy.com:443 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/urllib3/connectionpool.py line 959, in _new_conn ]
+2020-06-21 13:00:38,533 urllib3.connectionpool DEBUG https://api.authy.com:443 "GET /protected/json/phones/verification/check?phone_number=9782782776&country_code=%2B91&verification_code=8045 HTTP/1.1" 200 None : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/urllib3/connectionpool.py line 437, in _make_request ]
+2020-06-21 13:00:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bd261a20>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bd220048>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,542 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bd4a3be0>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,542 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bd2200b8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:00:38,542 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:00:38,542 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:00:38,542 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:00:38,542 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:00:38,542 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592748038
+/electrotrade/media/user/profile/user_profile.png : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:21,167 botocore.hooks  DEBUG Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,172 botocore.hooks  DEBUG Changing event name from before-call.apigateway to before-call.api-gateway : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,172 botocore.hooks  DEBUG Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,174 botocore.hooks  DEBUG Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,174 botocore.hooks  DEBUG Changing event name from before-parameter-build.route53 to before-parameter-build.route-53 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,175 botocore.hooks  DEBUG Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,176 botocore.hooks  DEBUG Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,179 botocore.hooks  DEBUG Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,179 botocore.hooks  DEBUG Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,179 botocore.hooks  DEBUG Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,179 botocore.hooks  DEBUG Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 417, in _alias_event_name ]
+2020-06-21 13:46:21,187 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/data/s3/2006-03-01/resources-1.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 13:46:21,189 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/endpoints.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 13:46:21,197 botocore.hooks  DEBUG Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f26bd5a3488> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,204 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/s3/2006-03-01/service-2.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 13:46:21,213 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f26bd5edd08> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,213 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function lazy_call.<locals>._handler at 0x7f26bcf116a8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,213 botocore.hooks  DEBUG Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f26bd5edae8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,215 botocore.endpoint DEBUG Setting s3 timeout as (60, 60) : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/endpoint.py line 266, in create_endpoint ]
+2020-06-21 13:46:21,216 botocore.loaders DEBUG Loading JSON file: /var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/data/_retry.json : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/loaders.py line 174, in load_file ]
+2020-06-21 13:46:21,216 botocore.client DEBUG Registering retry handlers for service: s3 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/client.py line 159, in _register_legacy_retries ]
+2020-06-21 13:46:21,218 boto3.resources.factory DEBUG Loading s3:s3 : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/factory.py line 66, in load_from_definition ]
+2020-06-21 13:46:21,219 boto3.resources.factory DEBUG Loading s3:Bucket : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/factory.py line 66, in load_from_definition ]
+2020-06-21 13:46:21,219 boto3.resources.model DEBUG Renaming Bucket attribute name : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/boto3/resources/model.py line 358, in _load_name_with_category ]
+2020-06-21 13:46:21,220 botocore.hooks  DEBUG Event creating-resource-class.s3.Bucket: calling handler <function lazy_call.<locals>._handler at 0x7f26bcec28c8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,220 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,220 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,220 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,221 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,221 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,221 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,221 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,221 botocore.utils  DEBUG Defaulting to S3 virtual host style addressing with path style addressing fallback. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1560, in _s3_addressing_handler ]
+2020-06-21 13:46:21,221 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,222 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,222 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:21,222 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:21,222 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750781
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,223 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,223 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,224 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:21,224 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:21,224 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750781
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:21,224 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,224 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:21,225 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,225 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:21,225 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:21,225 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:21,226 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750781
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:22,360 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,360 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,360 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,360 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,361 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,361 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,361 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,361 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,362 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,362 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:22,362 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:22,362 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750782
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:22,362 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,363 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,363 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,363 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:22,363 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:22,364 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750782
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:46:22,364 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,364 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,364 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,364 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,364 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,365 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,365 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:46:22,365 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,365 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:46:22,365 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:46:22,365 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:46:22,365 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592750782
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,005 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,006 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,006 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,006 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,006 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:51:47,006 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:51:47,006 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592751107
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,007 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,008 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,008 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,008 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:51:47,008 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:51:47,008 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592751107
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 13:51:47,009 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,009 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 13:51:47,009 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 13:51:47,010 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 13:51:47,010 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592751107
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 15:24:56,500 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,500 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,500 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,500 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,500 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,501 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,501 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,501 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,501 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,501 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 15:24:56,501 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 15:24:56,501 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592756696
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 15:24:56,502 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,502 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,502 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,502 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,502 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,503 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,503 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,503 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,503 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,503 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 15:24:56,503 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 15:24:56,503 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592756696
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,504 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 15:24:56,505 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,505 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 15:24:56,505 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 15:24:56,505 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 15:24:56,505 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592756696
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,537 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,538 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,538 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,538 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 18:07:38,538 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 18:07:38,538 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592766458
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,539 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,539 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,539 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 18:07:38,540 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 18:07:38,540 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592766458
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 18:07:38,540 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,540 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,540 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,540 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,541 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,541 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,541 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-21 18:07:38,541 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,541 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-21 18:07:38,541 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-21 18:07:38,541 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-21 18:07:38,541 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592766458
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-21 19:40:33,207 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 20:36:49,812 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 21:56:24,208 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 22:26:33,758 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 23:14:25,363 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 23:18:56,345 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-21 23:39:02,430 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 00:41:16,903 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,903 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,903 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,903 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,903 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,904 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,904 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,904 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,904 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,904 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 00:41:16,904 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 00:41:16,904 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592790076
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 00:41:16,905 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,905 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,905 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,905 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,905 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,906 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,906 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,906 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,906 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,906 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 00:41:16,906 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 00:41:16,906 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592790076
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,907 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,908 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 00:41:16,908 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,908 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 00:41:16,908 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 00:41:16,908 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 00:41:16,908 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592790076
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 00:50:45,424 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:08:48,775 django.request  WARNING Not Found: /dns-query : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:08:49,162 django.request  WARNING Not Found: /dns-query : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:22:34,791 django.request  WARNING Not Found: /latest/dynamic/instance-identity/document : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:22:35,699 django.request  WARNING Not Found: /latest/dynamic/instance-identity/document : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:33:53,240 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,166 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,167 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,167 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,167 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 01:40:54,167 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 01:40:54,167 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592793654
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 01:40:54,167 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,168 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,168 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,168 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 01:40:54,169 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 01:40:54,169 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592793654
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 01:40:54,169 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,169 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 01:40:54,170 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,170 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 01:40:54,170 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 01:40:54,170 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 01:40:54,170 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592793654
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 01:48:36,933 django.request  WARNING Not Found: /robots.txt : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:48:38,415 django.request  WARNING Not Found: /ads.txt : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 01:51:13,965 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,436 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,437 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,437 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,437 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,437 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 02:05:44,437 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 02:05:44,437 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592795144
+/electrotrade/static/admin/css/base.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,438 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,438 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,439 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 02:05:44,439 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 02:05:44,439 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592795144
+/electrotrade/static/admin/css/login.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 02:05:44,439 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function sse_md5 at 0x7f26bd5c3bf8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,439 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function validate_bucket_name at 0x7f26bd5c3b70> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3RegionRedirector.redirect_from_cache of <botocore.utils.S3RegionRedirector object at 0x7f26bcb61358>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <bound method S3ArnParamHandler.handle_arn of <botocore.utils.S3ArnParamHandler object at 0x7f26bcb61a58>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.hooks  DEBUG Event before-parameter-build.s3.GetObject: calling handler <function generate_idempotent_uuid at 0x7f26bd5c37b8> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.hooks  DEBUG Event choose-signer.s3.GetObject: calling handler <bound method ClientCreator._default_s3_presign_to_sigv2 of <botocore.client.ClientCreator object at 0x7f26bce2e5f8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.hooks  DEBUG Event before-sign.s3.GetObject: calling handler <bound method S3EndpointSetter.set_endpoint of <botocore.utils.S3EndpointSetter object at 0x7f26bcb61ac8>> : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/hooks.py line 210, in _emit ]
+2020-06-22 02:05:44,440 botocore.utils  DEBUG Checking for DNS compatible bucket for: https://s3.amazonaws.com/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 990, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,440 botocore.utils  DEBUG URI updated to: https://electrotrade.s3.amazonaws.com/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/utils.py line 1008, in switch_to_virtual_host_style ]
+2020-06-22 02:05:44,440 botocore.auth   DEBUG Calculating signature using hmacv1 auth. : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 732, in add_auth ]
+2020-06-22 02:05:44,440 botocore.auth   DEBUG HTTP request method: GET : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 734, in add_auth ]
+2020-06-22 02:05:44,440 botocore.auth   DEBUG StringToSign:
+GET
+
+
+1592795144
+/electrotrade/static/admin/css/responsive.css : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/botocore/auth.py line 726, in get_signature ]
+2020-06-22 02:06:00,325 django.request  WARNING Not Found: /robots.txt : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:06:02,316 django.request  WARNING Not Found: /sitemap.xml : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:06:04,736 django.request  WARNING Not Found: /.well-known/security.txt : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:06:07,962 django.request  WARNING Not Found: /favicon.ico : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:18:18,096 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:25:57,614 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 02:53:06,032 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 03:20:29,976 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]
+2020-06-22 03:30:04,022 django.request  WARNING Not Found: /dana-na : [/var/www/html/electonicswebservice/env/lib/python3.6/site-packages/django/utils/log.py line 228, in log_response ]

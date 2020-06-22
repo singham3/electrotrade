@@ -18,7 +18,7 @@ import hashlib
 from products.models import UserCategory, Category, OrderAddress
 from django.db.models.query import QuerySet
 from electonicswebservice.admininfo import *
-from bs4 import BeautifulSoup
+import html
 
 
 @api_view(['GET', 'POST'])
@@ -280,15 +280,10 @@ def login_with_otp_send(request, form=None):
                 user_data = Register.objects.get(email=mobile_or_email, is_email=True)
                 otp = email_send_otp_generate(user_data)
                 html_ = email_send_otp_html(otp)
-                soup = BeautifulSoup(html_)
-                h = soup.prettify('ascii', formatter='html')
-                open('/var/www/html/electonicswebservice/debug/test.html', 'w').write(
-                    h
-                )
                 if isinstance(html_, dict):
                     return_json_ = html_
                 else:
-                    return_json_ = email_send(user_data, 'Electrotrade Verification Code For Login', html_)
+                    return_json_ = email_send(user_data, f'{otp} is Electrotrade Verification Code For Login', html_)
                 return JsonResponse(return_json_, status=200, safe=False)
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -310,11 +305,30 @@ def login_with_otp_verify(request, form=None):
         is_otp_verify = False
         user_data = None
         if len(otp) == 4:
-            if Register.objects.filter(mobile=mobile_or_email, is_mobile=True):
+            if Register.objects.filter(mobile=mobile_or_email, is_mobile=True).exists():
                 user_data = Register.objects.get(mobile=mobile_or_email, is_mobile=True)
                 otp_response = verify(user_data.mobile, otp)
                 if otp_response['valid'] and otp_response['message'] == "SMS request successfully verify":
                     is_otp_verify = True
+            else:
+                return_json['valid'] = False
+                return_json['message'] = f"Login Account Not Valid"
+                return_json['count_result'] = 1
+                return_json['data'] = None
+                return JsonResponse(return_json, status=200, safe=False)
+        if len(otp) == 6:
+            if Register.objects.filter(email=mobile_or_email, is_email=True, key=otp).exists():
+                user_data = Register.objects.get(email=mobile_or_email, is_email=True, key=otp)
+                user_data.key = None
+                user_data.updated_at = datetime.now()
+                user_data.save()
+                is_otp_verify = True
+            else:
+                return_json['valid'] = False
+                return_json['message'] = f"Login Account Not Valid"
+                return_json['count_result'] = 1
+                return_json['data'] = None
+                return JsonResponse(return_json, status=200, safe=False)
         if is_otp_verify:
             try:
                 if user_data is not None:
@@ -348,7 +362,7 @@ def login_with_otp_verify(request, form=None):
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     return JsonResponse(return_json, status=200, safe=False)
-            except Register.DoesNotExist:
+            except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
                 logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
@@ -357,3 +371,88 @@ def login_with_otp_verify(request, form=None):
                 return_json['count_result'] = 1
                 return_json['data'] = None
                 return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+def verify_mobile_view(request):
+    try:
+        if request.method == 'POST':
+            user_data = Register.objects.get(account_id=request.COOKIES['id'])
+            otp = request.POST.get('otp')
+            otp_response = verify(user_data.mobile, otp)
+            if otp_response['valid'] and otp_response['message'] == "SMS request successfully verify":
+                user_data.is_mobile = True
+                user_data.updated_at = datetime.now()
+                user_data.save()
+                return_json['valid'] = True
+                return_json['message'] = "Successfully User Mobile Verified"
+                return_json['count_result'] = 1
+                return_json['data'] = UserInfo(Register.objects.get(account_id=request.COOKIES['id']))
+                otp_response = return_json
+            return JsonResponse(otp_response, status=200)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+def verify_email_otp_send_view(request):
+    try:
+        user_data = Register.objects.get(account_id=request.COOKIES['id'])
+        otp = email_send_otp_generate(user_data)
+        html_ = email_send_otp_html(otp)
+        if isinstance(html_, dict):
+            return_json_ = html_
+        else:
+            return_json_ = email_send(user_data, f'{otp} is Electrotrade Verification Code For Email Verification',
+                                      html_)
+        return JsonResponse(return_json_, status=200, safe=False)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
+@api_view(['GET', 'POST'])
+def verify_email_otp_verify_view(request):
+    try:
+        if request.method == 'POST':
+            user_data = Register.objects.get(account_id=request.COOKIES['id'])
+            otp = request.POST.get('otp')
+            if user_data.key == otp:
+                user_data.is_email = True
+                user_data.key = None
+                user_data.updated_at = datetime.now()
+                user_data.save()
+                return_json['valid'] = True
+                return_json['message'] = "Successfully User Mobile Verified"
+                return_json['count_result'] = 1
+                return_json['data'] = UserInfo(Register.objects.get(account_id=request.COOKIES['id']))
+            else:
+                return_json['valid'] = False
+                return_json['message'] = f"Failed to verify email"
+                return_json['count_result'] = 0
+                return_json['data'] = None
+            return JsonResponse(return_json, status=200, safe=False)
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
+        return_json['valid'] = False
+        return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
+        return_json['count_result'] = 1
+        return_json['data'] = None
+        return JsonResponse(return_json, status=200, safe=False)
+
+
