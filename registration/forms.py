@@ -81,13 +81,13 @@ class RegisterForm(ModelForm):
             return cleaned_data
         else:
             if Register.objects.filter(email=email).exists():
-                raise forms.ValidationError("Email already exists !!!!!!")
+                raise forms.ValidationError("Email already exists")
             if Register.objects.filter(username=username).exists():
-                raise forms.ValidationError("username already exists !!!!!!")
+                raise forms.ValidationError("username already exists")
             if Register.objects.filter(mobile=mobile).exists():
-                raise forms.ValidationError("mobile already exists !!!!!!")
+                raise forms.ValidationError("mobile already exists")
             if Register.objects.filter(account_id=account_id).exists():
-                raise forms.ValidationError("Account Id already exists !!!!!!")
+                raise forms.ValidationError("Account Id already exists")
             if password is None or password == '':
                 raise forms.ValidationError("password field is required")
 

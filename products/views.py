@@ -12,6 +12,46 @@ from .json_products import *
 
 
 @api_view(['GET', 'POST'])
+def user_delete(request, id=None):
+    if Register.objects.filter(id=id).exists():
+        user = Register.objects.get(id=id)
+        if OrderAddress.objects.filter(user=user).exists():
+            OrderAddress.objects.get(user=user).delete()
+        if UserCategory.objects.filter(user=user).exists():
+            UserCategory.objects.get(user=user).delete()
+        if ServiceEnquiry.objects.filter(user=user).exists():
+            ServiceEnquiry.objects.get(user=user).delete()
+        if ProductReview.objects.filter(user=user).exists():
+            ProductReview.objects.get(user=user).delete()
+        if AddCart.objects.filter(user=user).exists():
+            AddCart.objects.get(user=user).delete()
+        if OrderAddress.objects.filter(user=user).exists():
+            OrderAddress.objects.get(user=user).delete()
+        if ProductReward.objects.filter(user=user).exists():
+            ProductReward.objects.get(user=user).delete()
+        if RewardRedeem.objects.filter(user=user).exists():
+            RewardRedeem.objects.get(user=user).delete()
+        if ProductPayments.objects.filter(user=user).exists():
+            ProductPayments.objects.get(user=user).delete()
+        if OrderProductDeliver.objects.filter(user=user).exists():
+            OrderProductDeliver.objects.get(user=user).delete()
+        if OrderProduct.objects.filter(user=user).exists():
+            OrderProduct.objects.get(user=user).delete()
+        user.delete()
+        return_json['valid'] = True
+        return_json['message'] = "User Successfully Delete"
+        return_json['count_result'] = 1
+        return_json['data'] = 'Done'
+    else:
+        return_json['valid'] = False
+        return_json['message'] = "User not exists"
+        return_json['count_result'] = 0
+        return_json['data'] = 'User not exists'
+    return JsonResponse(return_json, status=200)
+
+
+
+@api_view(['GET', 'POST'])
 def category_data_view(request, page=1):
     try:
         category_data = alldata(Category, page)

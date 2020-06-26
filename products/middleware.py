@@ -11,8 +11,11 @@ class ProductReviewMiddleware(MiddlewareMixin):
             form = ProductReviewForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -57,8 +60,11 @@ class ProductOrderMiddleware(MiddlewareMixin):
             form = ProductOrderForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -110,8 +116,11 @@ class UserCategoryListMiddleware(MiddlewareMixin):
             form = UserCategoryForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -140,8 +149,11 @@ class RemoveCartMiddleware(MiddlewareMixin):
             form = RemoveCartForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)

@@ -111,8 +111,11 @@ class UserRegisterMiddleware(MiddlewareMixin):
                 form = RegisterForm(request.POST)
                 if not form.is_valid():
                     if form.errors:
+                        error = eval(form.errors.as_json())
+                        if '__all__' in error:
+                            error = error['__all__'][0]['message']
                         return_json['valid'] = False
-                        return_json['message'] = eval(form.errors.as_json())
+                        return_json['message'] = error
                         return_json['count_result'] = 1
                         return_json['data'] = None
                         logger.error(form.errors)
@@ -137,8 +140,11 @@ class LoginMiddleware(MiddlewareMixin):
                 form = LoginForm(request.POST)
                 if not form.is_valid():
                     if form.errors:
+                        error = eval(form.errors.as_json())
+                        if '__all__' in error:
+                            error = eval(error['__all__'][0]['message'])[0]
                         return_json['valid'] = False
-                        return_json['message'] = eval(form.errors.as_json())
+                        return_json['message'] = error
                         return_json['count_result'] = 1
                         return_json['data'] = None
                         logger.error(form.errors)
@@ -167,8 +173,11 @@ class ProfileMiddleware(MiddlewareMixin):
                 form = UserProfileEditForm(request.POST, request.FILES)
                 if not form.is_valid():
                     if form.errors:
+                        error = eval(form.errors.as_json())
+                        if '__all__' in error:
+                            error = eval(error['__all__'][0]['message'])[0]
                         return_json['valid'] = False
-                        return_json['message'] = eval(form.errors.as_json())
+                        return_json['message'] = error
                         return_json['count_result'] = 1
                         return_json['data'] = UserInfo(userprofiledata)
                         logger.error(form.errors)
@@ -199,89 +208,17 @@ class ProfileMiddleware(MiddlewareMixin):
         return response
 
 
-class ForgetPasswordMiddleware(MiddlewareMixin):
-    def process_view(self, request, view_func, view_args, view_kwargs):
-        if request.method == "POST":
-            form = ForgetPassForm(request.POST)
-            if not form.is_valid():
-                if form.errors:
-                    return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
-                    return_json['count_result'] = 1
-                    return_json['data'] = None
-                    logger.error(form.errors)
-                    return JsonResponse(return_json, status=200)
-            else:
-                return view_func(request, form)
-
-    def process_template_response(self, request, response):
-        return response
-
-
-class VerifyPasswordMiddleware(MiddlewareMixin):
-    def process_view(self, request, view_func, view_args, view_kwargs):
-        if "token" in request.GET and request.GET['token']:
-            token = request.GET['token']
-            data = jwt.decode(token, token_key["token_key"], 'utf-8')
-            if datetime.now() - datetime.strptime(data["token_created_at"],
-                                                  '%Y-%m-%d %H:%M:%S.%f') < timedelta(hours=24, minutes=1):
-                realdata = eval(decrypt_message_rsa(data["data"], private_key))
-                if Register.objects.filter(email=realdata[0], username=realdata[1], account_id=realdata[2],
-                                           key=realdata[3]).exists():
-                    if request.method == "POST":
-                        form = ForgetPasswordForm(request.POST)
-                        if not form.is_valid():
-                            if form.errors:
-                                print(eval(form.errors.as_json()), type(eval(form.errors.as_json())))
-                                return_json['valid'] = False
-                                return_json['message'] = eval(form.errors.as_json())
-                                return_json['count_result'] = 1
-                                return_json['data'] = None
-                                logger.error(form.errors)
-                                return JsonResponse(return_json, status=200)
-                        else:
-                            return view_func(request, form)
-                    else:
-                        logger.error("Page not found.")
-                        return_json['valid'] = False
-                        return_json['message'] = "URL not found"
-                        return_json['count_result'] = 1
-                        return_json['data'] = None
-                        return JsonResponse(return_json, status=200)
-                else:
-                    logger.error("URL Not Correct")
-                    return_json['valid'] = False
-                    return_json['message'] = "URL Not Correct"
-                    return_json['count_result'] = 1
-                    return_json['data'] = None
-                    return JsonResponse(return_json, status=200)
-            else:
-                logger.error("URL time out")
-                return_json['valid'] = False
-                return_json['message'] = "URL time out"
-                return_json['count_result'] = 1
-                return_json['data'] = None
-                return JsonResponse(return_json, status=200)
-        else:
-            logger.error("Page not found.")
-            return_json['valid'] = False
-            return_json['message'] = "URL not found"
-            return_json['count_result'] = 1
-            return_json['data'] = None
-            return JsonResponse(return_json, status=200)
-
-    def process_template_response(self, request, response):
-        return response
-
-
 class LoginWithOtpSendMiddleware(MiddlewareMixin):
     def process_view(self, request, view_func, view_args, view_kwargs):
         if request.method == "POST":
             form = LoginWithOtpSendForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -299,8 +236,11 @@ class LoginWithOtpVerifyMiddleware(MiddlewareMixin):
             form = LoginWithOtpVerifyForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)

@@ -11,8 +11,11 @@ class ProductOrderAddressMiddleware(MiddlewareMixin):
             form = ProductOrderAddressForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -38,8 +41,11 @@ class ProductOrderSelectAddressMiddleware(MiddlewareMixin):
             form = ProductOrderSelectAddressForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
@@ -59,8 +65,11 @@ class OrderProductCancelMiddleware(MiddlewareMixin):
             form = OrderProductCancelForm(request.POST)
             if not form.is_valid():
                 if form.errors:
+                    error = eval(form.errors.as_json())
+                    if '__all__' in error:
+                        error = eval(error['__all__'][0]['message'])[0]
                     return_json['valid'] = False
-                    return_json['message'] = eval(form.errors.as_json())
+                    return_json['message'] = error
                     return_json['count_result'] = 1
                     return_json['data'] = None
                     logger.error(form.errors)
