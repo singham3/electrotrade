@@ -14,7 +14,7 @@ class RegisterAdminView(admin.ModelAdmin):
     def role_name(self, obj):
         if obj is not None:
             return obj.role.role_name
-    list_display = ('id', 'username', 'email', 'first_name', 'last_name',  'role_name', 'account_id', 'user_profile_img',
+    list_display = ('id', 'username', 'email', 'first_name', 'last_name', 'mobile',  'role_name', 'account_id', 'user_profile_img',
                     'status', 'date_joined')
     form = RegisterForm
 

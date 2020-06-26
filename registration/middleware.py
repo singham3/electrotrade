@@ -216,7 +216,7 @@ class LoginWithOtpSendMiddleware(MiddlewareMixin):
                 if form.errors:
                     error = eval(form.errors.as_json())
                     if '__all__' in error:
-                        error = eval(error['__all__'][0]['message'])[0]
+                        error = error['__all__'][0]['message']
                     return_json['valid'] = False
                     return_json['message'] = error
                     return_json['count_result'] = 1
