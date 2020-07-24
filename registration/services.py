@@ -9,6 +9,7 @@ from authy.api import AuthyApiClient
 from django.conf import settings
 from electonicswebservice.otpsend import *
 from products.models import *
+import os, sys
 
 
 class CreateUserService(Service):
@@ -89,13 +90,14 @@ class CreateUserService(Service):
                 user_data.business_description = business_description
                 user_data.alternate_mobile = alternate_mobile
                 user_data.save()
-                order_address = OrderAddress.objects.get(user=Register.objects.get(username=self.cleaned_data["username"]),
-                                                         is_profile=True)
-                order_address.city = _city
-                order_address.state = _state
-                order_address.address = _address
-                order_address.pincode = _pincode
-                order_address.save()
+                if OrderAddress.objects.filter(user=Register.objects.get(username=self.cleaned_data["username"]), is_profile=True).exists():
+                    order_address = OrderAddress.objects.get(user=Register.objects.get(username=self.cleaned_data["username"]),
+                                                             is_profile=True)
+                    order_address.city = _city
+                    order_address.state = _state
+                    order_address.address = _address
+                    order_address.pincode = _pincode
+                    order_address.save()
                 return Register.objects.get(username=self.cleaned_data["username"])
             else:
                 Register(password=hashlib.sha256(self.cleaned_data["password"].encode()).hexdigest(),
@@ -125,14 +127,12 @@ class CreateUserService(Service):
                          alternate_mobile=alternate_mobile,
                          ).save()
                 user = Register.objects.last()
-                OrderAddress(user=user, city=_city, state=_state, address=_address, pincode=_pincode, is_profile=True).save()
+                if _city and _state and _address and _pincode:
+                    OrderAddress(user=user, city=_city, state=_state, address=_address, pincode=_pincode,
+                                 is_profile=True).save()
                 return Register.objects.last()
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
             logger.error(str((e, exc_type, f_name, exc_tb.tb_lineno)))
-            return_json['valid'] = False
-            return_json['message'] = f"{e}, {f_name}, {exc_tb.tb_lineno}"
-            return_json['count_result'] = 1
-            return_json['data'] = None
-            return return_json
+            return f"{e}, {f_name}, {exc_tb.tb_lineno}"

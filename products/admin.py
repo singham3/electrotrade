@@ -106,6 +106,7 @@ class OrderProductDeliverAdminView(admin.ModelAdmin):
                     delivery_date_time = form.cleaned_data.get('delivery_date_time')
                     delivery_status = form.cleaned_data.get('delivery_status')
                     is_delivered = form.cleaned_data.get('is_delivered')
+                    
                     order_product_obj = OrderProduct.objects.get(id=order_product.id, user=user, product=product,
                                                                  order=order, is_cancel=False)
                     order_product_deliver = OrderProductDeliver.objects.get(user=user, product=product, order=order,
@@ -113,33 +114,30 @@ class OrderProductDeliverAdminView(admin.ModelAdmin):
                     if order_product_deliver.payment_status == 'Paid' and order_product_deliver.delivery_amount > 0.0 and order_product_deliver.delivery_status == 'Delivered' and order_product_deliver.is_delivered == True:
                         messages.info(request, f'Order {order.order_id} Already delivered !!!!!')
                     else:
-                        if delivery_amount:
-                            if delivery_status == 'Delivered':
-                                if order_product_obj.total_after_tax == delivery_amount and payment_status == 'Paid':
-                                    if order_product_deliver.payment_status != 'Paid' and order_product_deliver.delivery_amount == 0.0 and order_product_deliver.delivery_status != 'Delivered' and order_product_deliver.is_delivered == False:
-                                        order_product_deliver.payment_status = payment_status
-                                        order_product_deliver.delivery_amount = delivery_amount
-                                        order_product_deliver.delivery_status = delivery_status
-                                        order_product_deliver.is_delivered = is_delivered
-                                        product_reward = ProductReward.objects.get(user=user)
-                                        product_reward.reward_point += order_product_obj.product.rewards
-                                        product_reward.updated_at = datetime.now()
-                                        product_reward.save()
-                                    else:
-                                        messages.info(request, f'Order {order.order_id} Already delivered !!!!!')
-                                else:
-                                    messages.error(request, f'''Please Collect money equal to the amount of the product,
-                                                                which is {order_product_obj.total_after_tax} rs.''')
-                            else:
-                                order_product_deliver.delivery_status = delivery_status
-                        order_product_deliver.delivery_date_time = delivery_date_time
-                        order_product_deliver.updated_at = datetime.now()
-                        order_product_deliver.save()
-                        order_product_obj.delivery_date_time = delivery_date_time
-                        order_product_obj.delivery_status = delivery_status
-                        order_product_obj.is_delivered = is_delivered
-                        order_product_obj.updated_at = datetime.now()
-                        order_product_obj.save()
+                        if delivery_amount and delivery_status == 'Delivered' and order_product_obj.total_after_tax == delivery_amount and payment_status == 'Paid':
+                            order_product_deliver.payment_status = payment_status
+                            order_product_deliver.delivery_amount = delivery_amount
+                            order_product_deliver.delivery_status = delivery_status
+                            order_product_deliver.is_delivered = is_delivered
+                            product_reward = ProductReward.objects.get(user=user)
+                            product_reward.reward_point += order_product_obj.product.rewards
+                            product_reward.updated_at = datetime.now()
+                            product_reward.save()
+                            product_payment = ProductPayments.objects.get(order=order,
+                                                                          is_cancel=False)
+                            product_payment.payment_status = payment_status
+                            product_payment.updated_at = datetime.now()
+                            product_payment.save()
+                        else:
+                            order_product_deliver.delivery_status = delivery_status
+                    order_product_deliver.delivery_date_time = delivery_date_time
+                    order_product_deliver.updated_at = datetime.now()
+                    order_product_deliver.save()
+                    order_product_obj.delivery_date_time = delivery_date_time
+                    order_product_obj.delivery_status = delivery_status
+                    order_product_obj.is_delivered = is_delivered
+                    order_product_obj.updated_at = datetime.now()
+                    order_product_obj.save()
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 f_name = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]

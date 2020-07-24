@@ -189,7 +189,24 @@ class OrderProductDeliverform(ModelForm):
         user = cleaned_data.get("user")
         product = cleaned_data.get("product")
         order = cleaned_data.get("order")
+        product_price = cleaned_data.get('product_price')
         order_product = cleaned_data.get("order_product")
+        payment_status = cleaned_data.get("payment_status")
+        delivery_status = cleaned_data.get("delivery_status")
+        delivery_amount = cleaned_data.get("delivery_amount")
+        is_delivered = cleaned_data.get("is_delivered")
+        if delivery_status == 'Delivered':
+            if payment_status != 'Paid' or delivery_amount != product_price or not is_delivered:
+                raise forms.ValidationError("Order Delivery needs fulfill the corresponding fields. ")
+        if payment_status == 'Paid':
+            if delivery_status != 'Delivered' or delivery_amount != product_price or not is_delivered:
+                raise forms.ValidationError("Order Delivery needs fulfill the corresponding fields. ")
+        if delivery_amount == product_price:
+            if delivery_status != 'Delivered' or payment_status != 'Paid' or not is_delivered:
+                raise forms.ValidationError("Order Delivery needs fulfill the corresponding fields. ")
+        if is_delivered:
+            if delivery_status != 'Delivered' or payment_status != 'Paid' or delivery_amount != product_price:
+                raise forms.ValidationError("Order Delivery needs fulfill the corresponding fields. ")
         if not OrderProduct.objects.filter(user=user, product=product, order=order, is_cancel=False).exists():
             raise forms.ValidationError("Order Product Not Exists")
         if not OrderProductDeliver.objects.filter(user=user, product=product, order=order, order_product=order_product).exists():

@@ -58,6 +58,8 @@ def order_address_data_json(i):
     order_dict['address'] = []
     for j in i:
         k = model_to_dict(j)
+        if not j.city and not j.state and not j.address and not j.pincode:
+            continue
         if j.user:
             k['user'] = str(j.user.id)
         if j.city:

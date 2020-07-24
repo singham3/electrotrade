@@ -8,6 +8,7 @@ from django.forms.models import model_to_dict
 from electonicswebservice.hashers import *
 from django.contrib import messages
 import json
+from django.contrib import messages
 
 
 class RegisterAdminView(admin.ModelAdmin):
@@ -53,18 +54,10 @@ class RegisterAdminView(admin.ModelAdmin):
                     'varification_document_front': form.cleaned_data.get('varification_document_front'),
                     'varification_document_back': form.cleaned_data.get('varification_document_back'),
                     })
-                if isinstance(new_user, dict):
-                    return_json['valid'] = True
-                    return_json['message'] = "Error to Created user "
-                    return_json['count_result'] = 1
-                    return_json['data'] = new_user
-                    return JsonResponse(return_json, status=200)
+                if isinstance(new_user, str):
+                    messages.error(request, new_user)
                 else:
-                    return_json['valid'] = True
-                    return_json['message'] = "User Successfully Created"
-                    return_json['count_result'] = 1
-                    return_json['data'] = UserInfo(new_user)
-                    return JsonResponse(return_json, status=200)
+                    messages.info(request, "User Successfully Created")
 
 
 class GenderAdminView(admin.ModelAdmin):
